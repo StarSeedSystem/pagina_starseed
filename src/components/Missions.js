@@ -1,17 +1,33 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { SectionWrapper } from './ContentSection';
+import { SectionWrapper, SectionTitle } from './ContentSection';
 
 const Button = styled(motion.button)`
   background: ${props => props.theme.colors.secondary};
   color: ${props => props.theme.colors.text};
   border: none;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
+  padding: 1.2rem 2.4rem;
+  margin: 1.2rem;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.5rem;
   border-radius: 30px;
+`;
+
+const MissionDescription = styled.div`
+  margin-top: 2.5rem;
+`;
+
+const MissionTitle = styled.h3`
+  font-size: 3rem;
+  color: ${props => props.theme.colors.secondary};
+  margin-bottom: 1.5rem;
+`;
+
+const MissionContent = styled.p`
+  font-size: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
 `;
 
 const Missions = () => {
@@ -34,19 +50,24 @@ const Missions = () => {
 
   return (
     <SectionWrapper id="missions">
-      <h2>Misiones</h2>
-      <div className="mission-buttons">
+      <SectionTitle>Misiones</SectionTitle>
+      <div>
         {missions.map((mission, index) => (
-          <Button key={index} onClick={() => setActiveMission(index)}>
+          <Button 
+            key={index} 
+            onClick={() => setActiveMission(activeMission === index ? null : index)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             {mission.title}
           </Button>
         ))}
       </div>
       {activeMission !== null && (
-        <div className="mission-description">
-          <h3>{missions[activeMission].title}</h3>
-          <p>{missions[activeMission].description}</p>
-        </div>
+        <MissionDescription>
+          <MissionTitle>{missions[activeMission].title}</MissionTitle>
+          <MissionContent>{missions[activeMission].description}</MissionContent>
+        </MissionDescription>
       )}
     </SectionWrapper>
   );

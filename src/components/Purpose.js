@@ -1,12 +1,26 @@
 import React from 'react';
-import { SectionWrapper } from './ContentSection';
+import styled from 'styled-components';
+import { SectionWrapper, SectionTitle } from './ContentSection';
+
+const PurposeWrapper = styled(SectionWrapper)`
+  padding: 3rem 1.5rem;
+`;
+
+const PurposeContent = styled.p`
+  font-size: 1.8rem;
+  max-width: 900px;
+  margin: 1.5rem auto 0;
+  line-height: 1.6;
+`;
 
 const Purpose = () => {
   return (
-    <SectionWrapper id="purpose">
-      <h2>Propósito</h2>
-      <p>Generar paz y compasión a través de sistemas de sistemas de organización social</p>
-    </SectionWrapper>
+    <PurposeWrapper id="purpose">
+      <SectionTitle>Propósito</SectionTitle>
+      <PurposeContent>
+        Generar paz y compasión a través de sistemas de organización social
+      </PurposeContent>
+    </PurposeWrapper>
   );
 };
 

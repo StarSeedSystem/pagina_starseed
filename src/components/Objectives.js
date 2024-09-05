@@ -1,5 +1,11 @@
 import React from 'react';
+import styled from 'styled-components';
 import { SectionWrapper, SectionTitle, ContentGrid, ContentCard, CardContent } from './ContentSection';
+
+const ObjectiveCard = styled(ContentCard)`
+  font-size: 1.6rem;
+  padding: 2.5rem;
+`;
 
 const Objectives = () => {
   const objectives = [
@@ -14,9 +20,9 @@ const Objectives = () => {
       <SectionTitle>Objetivos</SectionTitle>
       <ContentGrid>
         {objectives.map((objective, index) => (
-          <ContentCard key={index}>
+          <ObjectiveCard key={index}>
             <CardContent>{objective}</CardContent>
-          </ContentCard>
+          </ObjectiveCard>
         ))}
       </ContentGrid>
     </SectionWrapper>

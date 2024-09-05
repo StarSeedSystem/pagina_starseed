@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.colors.text};
     overflow-x: hidden;
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -18,23 +18,32 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h2 {
-    font-size: 3.5rem;
+    font-size: 4rem;
+    text-shadow: 0 0 10px ${props => props.theme.colors.primary};
+    @media (max-width: 768px) {
+      font-size: 3rem;
+    }
   }
 
   h3 {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
   }
 
   p {
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
     line-height: 1.6;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    padding: 0 1rem;
+    box-sizing: border-box;
   }
 
   button {
-    font-size: 1.1rem;
-    padding: 0.8rem 1.5rem;
+    font-size: 1.3rem;
+    padding: 1rem 2rem;
   }
 `;
 

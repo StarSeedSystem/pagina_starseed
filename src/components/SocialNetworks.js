@@ -4,29 +4,22 @@ import { SectionWrapper, SectionTitle, ContentGrid, ContentCard, CardTitle, Card
 import styled from 'styled-components';
 
 const NetworkButton = styled(motion.button)`
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
   color: ${props => props.theme.colors.text};
   border: none;
-  padding: 2rem;
-  margin: 0.5rem;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 2rem;
-  border-radius: 30px;
-  width: 100%;
+  font-size: 4rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.2);
-  }
+  margin: 1.5rem;
 `;
 
 const NetworkIcon = styled.span`
-  font-size: 4rem;
-  margin-bottom: 1rem;
+  font-size: 5rem;
 `;
 
 const ExpandedContent = styled(motion.div)`
@@ -172,11 +165,10 @@ La Red Sociocultural está diseñada para enriquecer la vida comunitaria y cultu
           <NetworkButton
             key={index}
             onClick={() => setActiveNetwork(index)}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
             <NetworkIcon>{network.icon}</NetworkIcon>
-            {network.name}
           </NetworkButton>
         ))}
       </ContentGrid>

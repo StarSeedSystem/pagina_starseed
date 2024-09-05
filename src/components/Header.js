@@ -18,8 +18,22 @@ const HeaderWrapper = styled.header`
   background-size: 1400% 1400%;
   animation: ${colorChange} 30s ease infinite;
   backdrop-filter: blur(5px);
-  border-radius: 0 0 30% 30% / 0 0 100% 100%;
+  border-radius: 0 0 50% 50% / 0 0 20% 20%;
   margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: inherit;
+    border-radius: 100% 100% 0 0 / 100% 100% 0 0;
+    transform: scaleX(1.5);
+  }
 `;
 
 const Title = styled(motion.h1)`
@@ -27,6 +41,12 @@ const Title = styled(motion.h1)`
   color: ${props => props.theme.colors.text};
   margin-bottom: 1rem;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    font-size: 3rem;
+  }
 `;
 
 const Subtitle = styled(motion.p)`
@@ -35,6 +55,12 @@ const Subtitle = styled(motion.p)`
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   max-width: 800px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const MenuButton = styled(motion.button)`

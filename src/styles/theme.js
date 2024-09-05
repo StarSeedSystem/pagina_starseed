@@ -12,8 +12,8 @@ export const theme = {
     textLight: 'rgba(255, 255, 255, 0.7)',
   },
   fonts: {
-    main: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-    secondary: "'Futura', 'Century Gothic', sans-serif",
+    main: 'Helvetica, Arial, sans-serif',
+    secondary: 'Helvetica, Arial, sans-serif',
   },
   gradients: {
     rainbow: 'linear-gradient(45deg, #ff0000, #ffb000, #ffff00, #00ff00, #00ffff, #0000ff, #7000ff)',

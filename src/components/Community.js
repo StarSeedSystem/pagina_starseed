@@ -14,15 +14,16 @@ const Button = styled(motion.button)`
   background: ${props => props.theme.colors.secondary};
   color: ${props => props.theme.colors.text};
   border: none;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
+  padding: 1rem 2rem;
+  margin: 0.75rem;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.4rem;
   border-radius: 30px;
 `;
 
 const Content = styled(motion.div)`
-  margin-top: 1rem;
+  margin-top: 2rem;
+  font-size: 1.4rem;
 `;
 
 const Community = () => {

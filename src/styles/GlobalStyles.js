@@ -21,14 +21,14 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 4rem;
     text-shadow: 0 0 10px ${props => props.theme.colors.primary};
     @media (max-width: 768px) {
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
   }
 
   h3 {
     font-size: 3rem;
     @media (max-width: 768px) {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
   }
 

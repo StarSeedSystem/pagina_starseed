@@ -2,12 +2,13 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const SectionWrapper = styled(motion.section)`
-  padding: 3rem 1.5rem;
-  background: rgba(0, 0, 0, 0.6);
+  padding: 3rem 1rem;
+  background: rgba(0, 0, 0, 0.45); // 25% más transparente
   backdrop-filter: blur(10px);
   margin: 1.5rem 0;
   border-radius: 25px;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  overflow: hidden; // Para asegurar que el contenido no se salga
 `;
 
 export const SectionTitle = styled(motion.h2)`
@@ -16,6 +17,13 @@ export const SectionTitle = styled(motion.h2)`
   margin-bottom: 2.5rem;
   text-align: center;
   text-shadow: 0 0 10px ${props => props.theme.colors.primary};
+  padding: 0 1rem;
+  word-wrap: break-word;
+  hyphens: auto;
+  
+  @media (max-width: 768px) {
+    font-size: 3.5rem;
+  }
 `;
 
 export const ContentGrid = styled.div`
@@ -26,7 +34,7 @@ export const ContentGrid = styled.div`
 `;
 
 export const ContentCard = styled(motion.div)`
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.075); // 25% más transparente
   padding: 2.5rem;
   border-radius: 20px;
   transition: all 0.3s ease;

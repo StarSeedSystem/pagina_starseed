@@ -67,8 +67,8 @@ const MenuButton = styled(motion.button)`
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: ${props => props.theme.colors.text}; // Cambiado a color de texto (blanco)
-  color: ${props => props.theme.colors.background}; // Cambiado para contraste
+  background: rgba(255, 255, 255, 0.2);
+  color: ${props => props.theme.colors.text};
   border: none;
   border-radius: 50%;
   width: 60px;
@@ -79,6 +79,7 @@ const MenuButton = styled(motion.button)`
   cursor: pointer;
   font-size: 2rem;
   z-index: 1001;
+  backdrop-filter: blur(5px);
 `;
 
 const Nav = styled(motion.nav)`

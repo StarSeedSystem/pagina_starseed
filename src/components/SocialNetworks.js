@@ -36,26 +36,31 @@ const ExpandedContent = styled(motion.div)`
 `;
 
 const CloseButton = styled(motion.button)`
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: ${props => props.theme.colors.primary};
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.2);
   color: ${props => props.theme.colors.text};
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   font-size: 1.5rem;
+  z-index: 1001;
+  backdrop-filter: blur(5px);
+  padding: 0;
+  line-height: 1;
 `;
 
 const ExpandedCardContent = styled(CardContent)`
   max-width: 800px;
   margin: 2rem auto;
   text-align: left;
+  padding-top: 60px; // Para dar espacio al botón de cierre
 `;
 
 const SocialNetworks = () => {
@@ -187,9 +192,11 @@ La Red Sociocultural está diseñada para enriquecer la vida comunitaria y cultu
             >
               ×
             </CloseButton>
-            <SectionTitle>{networks[activeNetwork].name}</SectionTitle>
-            <ExpandedCardContent style={{ whiteSpace: 'pre-line' }}>
-              {networks[activeNetwork].description}
+            <ExpandedCardContent>
+              <SectionTitle>{networks[activeNetwork].name}</SectionTitle>
+              <CardContent style={{ whiteSpace: 'pre-line' }}>
+                {networks[activeNetwork].description}
+              </CardContent>
             </ExpandedCardContent>
           </ExpandedContent>
         )}

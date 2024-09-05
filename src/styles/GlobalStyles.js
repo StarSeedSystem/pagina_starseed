@@ -10,7 +10,11 @@ export const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.colors.text};
     overflow-x: hidden;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
+    
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -18,17 +22,17 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h2 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     text-shadow: 0 0 10px ${props => props.theme.colors.primary};
     @media (max-width: 768px) {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
     }
   }
 
   h3 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     @media (max-width: 768px) {
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
   }
 
@@ -36,14 +40,23 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 100%;
     margin: 0 auto;
     line-height: 1.6;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     padding: 0 1rem;
     box-sizing: border-box;
+    
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
   }
 
   button {
-    font-size: 1.3rem;
-    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+    
+    @media (max-width: 768px) {
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+    }
   }
 `;
 

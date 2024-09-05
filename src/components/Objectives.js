@@ -3,16 +3,21 @@ import styled from 'styled-components';
 import { SectionWrapper, SectionTitle, ContentGrid, ContentCard, CardContent } from './ContentSection';
 
 const ObjectiveCard = styled(ContentCard)`
-  font-size: 1.6rem;
-  padding: 2.5rem;
+  font-size: 1.4rem;
+  padding: 2rem;
+  
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+    padding: 1.5rem;
+  }
 `;
 
 const Objectives = () => {
   const objectives = [
-    "Conceptualizar los fundamentos universales con un diccionario espiritual y una guía para la paz, incluyendo secciones sobre salud corporal, emocional y espiritual.",
-    "Crear comunidades StarSeed donde se realicen actividades recreativas y espirituales, charlas, clases y conversaciones grupales.",
-    "Crear zonas habitables y promover la implementación del sistema en las sociedades e implementar un sistema económico sustentable ecológico comunista libre con abundancia y respeto para todes.",
-    "Desarrollar una red social digital dividida en tres secciones: Política, Educación y Cultura."
+    "Conceptualizar fundamentos universales con un diccionario espiritual y guía para la paz.",
+    "Crear comunidades StarSeed para actividades recreativas, espirituales y educativas.",
+    "Implementar un sistema económico sustentable, ecológico y comunista libre.",
+    "Desarrollar una red social digital: Política, Educación y Cultura."
   ];
 
   return (

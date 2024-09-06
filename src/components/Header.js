@@ -17,17 +17,11 @@ const HeaderWrapper = styled.header`
   padding: 20px;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(
-    -45deg,
-    #ee7752,
-    #e73c7e,
-    #23a6d5,
-    #23d5ab
-  );
-  background-size: 400% 400%;
-  animation: ${changeBackground} 15s ease infinite;
   border-bottom-left-radius: 50% 20%;
   border-bottom-right-radius: 50% 20%;
+  background: linear-gradient(-45deg, #ff0000, #ffb000, #ffff00, #00ff00, #00ffff, #0000ff, #7000ff);
+  background-size: 400% 400%;
+  animation: ${changeBackground} 15s ease infinite;
 `;
 
 const Logo = styled.img`

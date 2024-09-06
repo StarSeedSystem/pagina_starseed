@@ -1,5 +1,10 @@
-import React, { useEffect, useRef } from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useState } from 'react';
+import styled, { keyframes } from 'styled-components';
+
+const move = keyframes`
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(var(--moveX), var(--moveY)) scale(var(--scale)); }
+`;
 
 const BackgroundWrapper = styled.div`
   position: fixed;
@@ -11,71 +16,52 @@ const BackgroundWrapper = styled.div`
   overflow: hidden;
 `;
 
-const Canvas = styled.canvas`
-  width: 100%;
-  height: 100%;
+const ColorBlob = styled.div`
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+  animation: ${move} var(--duration) infinite ease-in-out;
 `;
 
+const colors = ['#ff0000', '#ffb000', '#ffff00', '#00ff00', '#00ffff', '#0000ff', '#7000ff'];
+
 const AnimatedBackground = () => {
-  const canvasRef = useRef(null);
+  const [blobs, setBlobs] = useState([]);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    let animationFrameId;
-
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
-    const colors = ['#ff0000', '#ffb000', '#ffff00', '#00ff00', '#00ffff', '#0000ff', '#7000ff'];
-    const blobs = Array(7).fill().map(() => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      radius: Math.random() * 200 + 100,
+    const newBlobs = Array.from({ length: 20 }, (_, i) => ({
+      id: i,
       color: colors[Math.floor(Math.random() * colors.length)],
-      vx: Math.random() * 2 - 1,
-      vy: Math.random() * 2 - 1,
+      top: `${Math.random() * 100}%`,
+      left: `${Math.random() * 100}%`,
+      size: `${Math.random() * 30 + 10}%`,
+      moveX: `${(Math.random() - 0.5) * 40}px`,
+      moveY: `${(Math.random() - 0.5) * 40}px`,
+      scale: Math.random() * 0.5 + 0.75,
+      duration: `${Math.random() * 10 + 5}s`,
     }));
-
-    const render = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      blobs.forEach(blob => {
-        blob.x += blob.vx;
-        blob.y += blob.vy;
-
-        if (blob.x < 0 || blob.x > canvas.width) blob.vx *= -1;
-        if (blob.y < 0 || blob.y > canvas.height) blob.vy *= -1;
-
-        const gradient = ctx.createRadialGradient(blob.x, blob.y, 0, blob.x, blob.y, blob.radius);
-        gradient.addColorStop(0, `${blob.color}33`);
-        gradient.addColorStop(1, `${blob.color}00`);
-
-        ctx.beginPath();
-        ctx.arc(blob.x, blob.y, blob.radius, 0, Math.PI * 2);
-        ctx.fillStyle = gradient;
-        ctx.fill();
-      });
-
-      animationFrameId = window.requestAnimationFrame(render);
-    };
-
-    render();
-
-    return () => {
-      window.cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('resize', resizeCanvas);
-    };
+    setBlobs(newBlobs);
   }, []);
 
   return (
     <BackgroundWrapper>
-      <Canvas ref={canvasRef} />
+      {blobs.map((blob) => (
+        <ColorBlob
+          key={blob.id}
+          style={{
+            top: blob.top,
+            left: blob.left,
+            width: blob.size,
+            height: blob.size,
+            background: blob.color,
+            '--moveX': blob.moveX,
+            '--moveY': blob.moveY,
+            '--scale': blob.scale,
+            '--duration': blob.duration,
+          }}
+        />
+      ))}
     </BackgroundWrapper>
   );
 };

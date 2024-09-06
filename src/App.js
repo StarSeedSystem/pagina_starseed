@@ -11,6 +11,7 @@ import SocialNetworks from './components/SocialNetworks';
 import Community from './components/Community';
 import Footer from './components/Footer';
 import AnimatedBackground from './components/AnimatedBackground';
+import FloatingMenu from './components/FloatingMenu';
 import logo from './assets/imagenes/simbolo_starseed.png'; // Ajusta la ruta según sea necesario
 
 function App() {
@@ -19,14 +20,15 @@ function App() {
       <GlobalStyle />
       <ParallaxProvider>
         <AnimatedBackground />
+        <FloatingMenu />
         <AppWrapper>
-          <Header logo={logo} />
+          <Header id="header" logo={logo} />
           <main>
-            <Purpose />
-            <Missions />
-            <Objectives />
-            <SocialNetworks />
-            <Community />
+            <Purpose id="purpose" />
+            <Missions id="missions" />
+            <Objectives id="objectives" />
+            <SocialNetworks id="social-networks" />
+            <Community id="community" />
           </main>
           <Footer />
         </AppWrapper>

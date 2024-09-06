@@ -42,9 +42,9 @@ const Subtitle = styled.h2`
   text-align: center;
 `;
 
-const Header = ({ logo }) => {
+const Header = ({ logo, id }) => {
   return (
-    <HeaderWrapper>
+    <HeaderWrapper id={id}>
       <Logo src={logo} alt="Proyecto StarSeed Logo" />
       <Title>Proyecto StarSeed</Title>
       <Subtitle>La semilla universal de información evolutiva</Subtitle>

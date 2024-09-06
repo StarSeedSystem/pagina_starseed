@@ -3,8 +3,8 @@
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  height: 150px;
+  margin-bottom: 20px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -19,7 +19,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 50px;
   font-size: calc(10px + 2vmin);
   color: white;
 }

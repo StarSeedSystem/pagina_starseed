@@ -10,7 +10,7 @@ import Objectives from './components/Objectives';
 import SocialNetworks from './components/SocialNetworks';
 import Community from './components/Community';
 import Footer from './components/Footer';
-import AnimatedBackground from './components/AnimatedBackground';
+import logo from './assets/imagenes/simbolo_starseed.png'; // Ajusta la ruta según sea necesario
 
 function App() {
   return (
@@ -18,8 +18,7 @@ function App() {
       <GlobalStyle />
       <ParallaxProvider>
         <AppWrapper>
-          <AnimatedBackground />
-          <Header />
+          <Header logo={logo} />
           <main>
             <Purpose />
             <Missions />

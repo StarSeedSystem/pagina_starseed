@@ -46,7 +46,7 @@ const Header = ({ logo, id }) => {
   return (
     <HeaderWrapper id={id}>
       <Logo src={logo} alt="Proyecto StarSeed Logo" />
-      <Title>Proyecto StarSeed</Title>
+      <Title>Sociedas StarSeed</Title>
       <Subtitle>La semilla universal de información evolutiva</Subtitle>
     </HeaderWrapper>
   );

@@ -14,9 +14,10 @@ const ObjectiveCard = styled(ContentCard)`
 
 const Objectives = () => {
   const objectives = [
-    "Conceptualizar fundamentos universales con un diccionario espiritual y guía para la paz.",
-    "Crear comunidades StarSeed para actividades recreativas, espirituales y educativas.",
-    "Implementar un sistema económico sustentable, ecológico y comunista libre.",
+    "Conceptualizar los fundamentos universales con un diccionario y una guía para la paz, incluyendo secciones sobre salud corporal, emocional y espiritual.",
+    "Crear comunidades StarSeed donde se realicen actividades recreativas y espirituales, charlas, clases y conversaciones grupales. Estos espacios también servirán como centros de votación públicos para personas sin acceso a dispositivos móviles y para ofrecer el sistema político, educativo y cultural en entornos físicos.",
+    "Crear viviendas y promover la implementación del sistema en las sociedades e implementar un sistema económico sustentable ecológico comunista libre con abundancia y respeto para todes.",
+    "Crear democráticamente una constitución starseed que defina las leyes fundamentales que dirijan la sociedad starseed y permitan una civilización evolutiva.",
     "Desarrollar una red social digital: Política, Educación y Cultura."
   ];
 

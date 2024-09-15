@@ -18,7 +18,7 @@ const Purpose = () => {
     <PurposeWrapper id="purpose">
       <SectionTitle>Propósito</SectionTitle>
       <PurposeContent>
-        Generar paz y compasión a través de sistemas de organización social
+      Ayudar a la evolución de la civilización a través de sistemas de organización social que generan paz y compasión.
       </PurposeContent>
     </PurposeWrapper>
   );

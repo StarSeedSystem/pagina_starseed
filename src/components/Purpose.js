@@ -12,7 +12,7 @@ const PurposeWrapper = styled(SectionWrapper)`
 const PurposeContent = styled.p`
   font-size: 1.8rem;
   max-width: 900px;
-  margin: 1.5rem auto 0;
+  margin: 5rem auto 0;
   line-height: 1.6;
   text-align: center;
 `;
@@ -25,12 +25,12 @@ const Icon = styled.img`
 
 const PeaceIcon = styled(Icon)`
   left: 5%;
-  top: 5%;
+  top: 20%;
 `;
 
 const CompassionIcon = styled(Icon)`
   right: 5%;
-  top: 5%;
+  top: 20%;
 `;
 
 const Purpose = () => {

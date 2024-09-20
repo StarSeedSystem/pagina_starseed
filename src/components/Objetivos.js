@@ -10,16 +10,13 @@ const ObjetivosWrapper = styled.section`
 const ObjetivoItem = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-bottom: 2rem;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    align-items: stretch;
-  }
+  padding: 1rem;
 `;
 
 const IconWrapper = styled.div`
@@ -27,11 +24,7 @@ const IconWrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  background: rgba(0, 0, 0, 0.2);
-
-  @media (min-width: 768px) {
-    flex: 0 0 100px;
-  }
+  order: 2;
 `;
 
 const Icon = styled.img`
@@ -41,17 +34,13 @@ const Icon = styled.img`
 `;
 
 const TextContent = styled.div`
-  flex: 1;
+  width: 100%;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-
-  @media (min-width: 768px) {
-    text-align: ${props => props.alignLeft ? 'left' : 'right'};
-    order: ${props => props.alignLeft ? 2 : 1};
-  }
+  order: 1;
 `;
 
 const Title = styled.h3`
@@ -68,14 +57,12 @@ const Objetivos = () => {
     { 
       title: "Propósito", 
       description: "Descripción del propósito...", 
-      iconLeft: "/path/to/icon1.png",
-      iconRight: "/path/to/icon2.png"
+      icon: "/path/to/icon1.png",
     },
     { 
       title: "Objetivo 2", 
       description: "Descripción del objetivo 2...", 
-      icon: "/path/to/icon3.png",
-      alignLeft: true
+      icon: "/path/to/icon2.png",
     },
     // ... más objetivos
   ];
@@ -84,37 +71,13 @@ const Objetivos = () => {
     <ObjetivosWrapper>
       {objetivos.map((objetivo, index) => (
         <ObjetivoItem key={index}>
-          {objetivo.iconLeft ? (
-            <>
-              <IconWrapper>
-                <Icon src={objetivo.iconLeft} alt={`${objetivo.title} - Icono izquierdo`} />
-              </IconWrapper>
-              <TextContent>
-                <Title>{objetivo.title}</Title>
-                <Description>{objetivo.description}</Description>
-              </TextContent>
-              <IconWrapper>
-                <Icon src={objetivo.iconRight} alt={`${objetivo.title} - Icono derecho`} />
-              </IconWrapper>
-            </>
-          ) : (
-            <>
-              {!objetivo.alignLeft && (
-                <IconWrapper>
-                  <Icon src={objetivo.icon} alt={objetivo.title} />
-                </IconWrapper>
-              )}
-              <TextContent alignLeft={objetivo.alignLeft}>
-                <Title>{objetivo.title}</Title>
-                <Description>{objetivo.description}</Description>
-              </TextContent>
-              {objetivo.alignLeft && (
-                <IconWrapper>
-                  <Icon src={objetivo.icon} alt={objetivo.title} />
-                </IconWrapper>
-              )}
-            </>
-          )}
+          <TextContent>
+            <Title>{objetivo.title}</Title>
+            <Description>{objetivo.description}</Description>
+          </TextContent>
+          <IconWrapper>
+            <Icon src={objetivo.icon} alt={objetivo.title} />
+          </IconWrapper>
         </ObjetivoItem>
       ))}
     </ObjetivosWrapper>

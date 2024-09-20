@@ -12,22 +12,24 @@ const ObjectivesWrapper = styled(SectionWrapper)`
 
 const ObjectiveItem = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-bottom: 2rem;
   padding: 1rem;
   border: 1px solid #ddd;
   border-radius: 8px;
+  text-align: center;
 `;
 
 const ObjectiveIcon = styled.img`
   width: 200px;
   height: 200px;
   object-fit: contain;
-  margin: ${props => props.alignRight ? '0 0 0 1rem' : '0 1rem 0 0'};
+  margin-top: 1rem;
 `;
 
 const ObjectiveContent = styled.div`
-  flex: 1;
+  width: 100%;
 `;
 
 const ObjectiveTitle = styled.h3`
@@ -45,13 +47,13 @@ const Objectives = () => {
       <SectionTitle>Objetivos</SectionTitle>
       
       <ObjectiveItem>
-        <ObjectiveIcon src={guiaParaPaz} alt="Guía para la Paz" />
         <ObjectiveContent>
           <ObjectiveTitle>Guía para la Paz</ObjectiveTitle>
           <ObjectiveDescription>
           Conceptualizar los fundamentos universales con un diccionario y una guía para la paz, incluyendo secciones sobre salud corporal, emocional y espiritual.
           </ObjectiveDescription>
         </ObjectiveContent>
+        <ObjectiveIcon src={guiaParaPaz} alt="Guía para la Paz" />
       </ObjectiveItem>
 
       <ObjectiveItem>
@@ -61,17 +63,17 @@ const Objectives = () => {
           Crear comunidades StarSeed donde se realicen actividades recreativas y espirituales, charlas, clases y conversaciones grupales. Estos espacios también servirán como centros de votación públicos para personas sin acceso a dispositivos móviles y para ofrecer el sistema político, educativo y cultural en entornos físicos.
           </ObjectiveDescription>
         </ObjectiveContent>
-        <ObjectiveIcon src={comunidad} alt="Comunidades Autosustentables" alignRight />
+        <ObjectiveIcon src={comunidad} alt="Comunidades Autosustentables" />
       </ObjectiveItem>
 
       <ObjectiveItem>
-        <ObjectiveIcon src={viviendas} alt="Viviendas Ecológicas" />
         <ObjectiveContent>
           <ObjectiveTitle>Viviendas Ecológicas</ObjectiveTitle>
           <ObjectiveDescription>
           Crear viviendas y promover la implementación del sistema en las sociedades e implementar un sistema económico sustentable ecológico comunista libre con abundancia y respeto para todes.
           </ObjectiveDescription>
         </ObjectiveContent>
+        <ObjectiveIcon src={viviendas} alt="Viviendas Ecológicas" />
       </ObjectiveItem>
 
       <ObjectiveItem>
@@ -81,7 +83,7 @@ const Objectives = () => {
           Crear democráticamente una constitución starseed que defina las leyes fundamentales que dirijan la sociedad starseed y permitan una civilización evolutiva.
           </ObjectiveDescription>
         </ObjectiveContent>
-        <ObjectiveIcon src={constitucion} alt="Constitución Global" alignRight />
+        <ObjectiveIcon src={constitucion} alt="Constitución Global" />
       </ObjectiveItem>
     </ObjectivesWrapper>
   );

@@ -43,7 +43,7 @@ const ObjectiveContent = styled.div`
 `;
 
 const ObjectiveTitle = styled.h3`
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   margin-bottom: 0.5rem;
 `;
 

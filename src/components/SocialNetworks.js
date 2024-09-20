@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SectionWrapper, SectionTitle, ContentGrid, CardContent } from './ContentSection';
 import styled from 'styled-components';
+import botonPolitica from '../assets/imagenes/red_social/politica/boton.png';
+import botonEducacion from '../assets/imagenes/red_social/educacion/boton.png';
+import botonCultura from '../assets/imagenes/red_social/cultura/boton.png';
+import internoPolitica from '../assets/imagenes/red_social/politica/interno.png';
+import internoEducacion from '../assets/imagenes/red_social/educacion/interno.png';
+import internoCultura from '../assets/imagenes/red_social/cultura/interno.png';
 
 const NetworkButton = styled(motion.button)`
   background: rgba(255, 255, 255, 0.2);
@@ -18,8 +24,10 @@ const NetworkButton = styled(motion.button)`
   margin: 1.5rem;
 `;
 
-const NetworkIcon = styled.span`
-  font-size: 5rem;
+const NetworkIcon = styled.img`
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
 `;
 
 const ExpandedContent = styled(motion.div)`
@@ -63,13 +71,21 @@ const ExpandedCardContent = styled(CardContent)`
   padding-top: 60px; // Para dar espacio al botón de cierre
 `;
 
+const InternalImage = styled.img`
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 1rem 0;
+`;
+
 const SocialNetworks = () => {
   const [activeNetwork, setActiveNetwork] = useState(null);
 
   const networks = [
     {
       name: "Política",
-      icon: "🌐", // Mundo con una red
+      icon: botonPolitica,
+      internalImage: internoPolitica,
       description: `Red Sociodemocrática (no socialdemocracia); es una plataforma diseñada para la votación y publicación libre de ideas en cualquier formato y transcrito. Sus principales características son: 
 
       Publicación de Propuestas y federaciones: 
@@ -80,7 +96,7 @@ Votación y Comentarios:
 Opinión de Expertos: 
 - Se busca la opinión de expertos que pueden solicitar dar su opinión si no pertenecen a la entidad federativa, quienes pueden tener insignias o certificados en sus perfiles, reconociendo su sabiduría en el tema y mejorando la calidad del debate.
 Seguimiento y Copias: 
-- Los usuarios pueden seguir a partidos políticos, grupos o individuos para replicar sus votos en una sección de “copiados” o a entidades federativas para ver sus propuestas en una sección de "seguidos". 
+- Los usuarios pueden seguir a partidos políticos, grupos o individuos para replicar sus votos en una sección de "copiados" o a entidades federativas para ver sus propuestas en una sección de "seguidos". 
 - En caso de conflicto entre varios partidos, grupos o individuos cuyos votos se han copiado, el sistema cancela y notifica dichos conflictos, manteniendo la integridad del proceso de votación. 
 Transparencia: 
 - Todos los votos se publican públicamente y se verifica la existencia de cada participante de forma anual en vereficentros StsrSeed para asegurar la veracidad de la información, la confianza en el proceso y evitar hackeos. 
@@ -103,7 +119,8 @@ Cada sección trabaja de manera integrada para crear un sistema democrático rob
     },
     {
       name: "Educación",
-      icon: "📖", // Libro
+      icon: botonEducacion,
+      internalImage: internoEducacion,
       description: `Red Socioeducativa libre y accesible, organizada por categorías, donde toda la información es confiable y verificable. Sus principales características incluyen: 
 
       Clases Guiadas y Artículos:
@@ -126,7 +143,8 @@ La Red Socioeducativa está diseñada para proporcionar una educación de alta c
     },
     {
       name: "Cultura",
-      icon: "🎨", // Paleta de pintura
+      icon: botonCultura,
+      internalImage: internoCultura,
       description: `Red Sociocultural; es una plataforma dinámica que permite la publicación de contenido y la creación de perfiles con formato libre, manteniendo siempre el respeto y la veracidad. Sus principales características son: 
 
       Opciones de Privacidad y Permanencia:
@@ -143,7 +161,7 @@ Mapas y Actividades:
 - Incluye calendarios y herramientas democráticas para la organización y seguimiento de eventos públicos con opción de privados para zonas privadas. 
 Democracia Geográfica: 
 - Los usuarios pueden votar por el nombre, la delimitación o tiempo de eventos temporales, entidades federativas o la toponimia (nombramiento de zonas geográficas), integrando el sistema legislativo para una mayor participación comunitaria, respeto y democracia geográfica. Recomendaciones Personalizadas: 
-- Opción de usar inteligencia artificial personalizada con la Información de cada usuario para simular interacciones en diferentes contextos con contenido y otras páginas y con los resultados busca la mejor resonancia, armonía y compatibilidad, ofreciendo recomendaciones de amistades, eventos y contenido en una sección dedicada a “recomendaciones”. 
+- Opción de usar inteligencia artificial personalizada con la Información de cada usuario para simular interacciones en diferentes contextos con contenido y otras páginas y con los resultados busca la mejor resonancia, armonía y compatibilidad, ofreciendo recomendaciones de amistades, eventos y contenido en una sección dedicada a "recomendaciones". 
 
 La Red Sociocultural está diseñada para enriquecer la vida comunitaria y cultural, proporcionando herramientas que permiten la libre expresión y la organización de actividades sociales, todo dentro de un marco de respeto y paz.`
     }
@@ -160,7 +178,7 @@ La Red Sociocultural está diseñada para enriquecer la vida comunitaria y cultu
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <NetworkIcon>{network.icon}</NetworkIcon>
+            <NetworkIcon src={network.icon} alt={network.name} />
           </NetworkButton>
         ))}
       </ContentGrid>
@@ -181,6 +199,7 @@ La Red Sociocultural está diseñada para enriquecer la vida comunitaria y cultu
             </CloseButton>
             <ExpandedCardContent>
               <SectionTitle>{networks[activeNetwork].name}</SectionTitle>
+              <InternalImage src={networks[activeNetwork].internalImage} alt={`${networks[activeNetwork].name} interno`} />
               <CardContent style={{ whiteSpace: 'pre-line' }}>
                 {networks[activeNetwork].description}
               </CardContent>

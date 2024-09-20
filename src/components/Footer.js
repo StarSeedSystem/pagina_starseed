@@ -73,10 +73,10 @@ const Footer = () => {
       <ColorBackground />
       <Content>
         <ConvocatoriaText>
-          Convocatoria a: programadores, artistas, diseñadores, donadores, activistas, etc.
+          Convocatoria
         </ConvocatoriaText>
         <Description>
-          Las posibilidades y velocidad de la creación y expansión del proyecto StarSeed dependen de los recursos tanto económicos como sociales. Buscamos inversionistas, donadores, activistas y artistas que ayuden a fomentar este proyecto revolucionario.
+          Las posibilidades y velocidad de la creación y expansión del proyecto StarSeed dependen de los recursos tanto económicos como sociales. Buscamos inversionistas, donadores, inversionistas,activistas y artistas que ayuden a fomentar este proyecto revolucionario.
         </Description>
         <SocialButton href="https://linktr.ee/FundacionStarseed" target="_blank" rel="noopener noreferrer">
           Únete a nuestra comunidad

@@ -40,7 +40,10 @@ const ExpandedContent = styled(motion.div)`
   backdrop-filter: blur(10px);
   z-index: 1000;
   overflow-y: auto;
-  padding: 0.1rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const CloseButton = styled(motion.button)`
@@ -65,17 +68,21 @@ const CloseButton = styled(motion.button)`
 `;
 
 const ExpandedCardContent = styled(CardContent)`
-  max-width: 800px;
-  margin: 2rem auto;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  margin: 0;
   text-align: left;
-  padding-top: 60px; // Para dar espacio al botón de cierre
+  padding: 10px 20px 20px;
+  overflow-y: auto;
 `;
 
 const InternalImage = styled.img`
   width: 100%;
   max-width: 600px;
   height: auto;
-  margin: 1rem 0;
+  margin: 1rem auto;
+  display: block;
 `;
 
 const SocialNetworks = () => {
@@ -185,9 +192,9 @@ La Red Sociocultural está diseñada para enriquecer la vida comunitaria y cultu
       <AnimatePresence>
         {activeNetwork !== null && (
           <ExpandedContent
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
             <CloseButton

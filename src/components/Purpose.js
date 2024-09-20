@@ -5,7 +5,7 @@ import paloma from '../assets/imagenes/proposito/paloma.png';
 import compasion from '../assets/imagenes/proposito/compasion.png';
 
 const PurposeWrapper = styled(SectionWrapper)`
-  padding: 3rem 1.5rem;
+  padding: 1rem 1.5rem;
   position: relative;
 `;
 
@@ -18,8 +18,8 @@ const PurposeContent = styled.p`
 `;
 
 const Icon = styled.img`
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   position: absolute;
 `;
 

@@ -8,6 +8,11 @@ import constitucion from '../assets/imagenes/objetivos/constitucion.png';
 
 const ObjectivesWrapper = styled(SectionWrapper)`
   // Mantener estilos existentes
+  padding-top: 1rem; // Subir el título
+`;
+
+const StyledSectionTitle = styled(SectionTitle)`
+  margin-bottom: 3rem; // Aumentar el espacio debajo del título
 `;
 
 const ObjectiveItem = styled.div`
@@ -15,15 +20,20 @@ const ObjectiveItem = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 2rem;
-  padding: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  padding: 1.5rem;
+  border-radius: 150px; // Aumentado para hacer los bordes más redondeados
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.4); // Fondo más oscuro y transparente
+  transition: box-shadow 1s ease;
+
+  &:hover {
+    box-shadow: 0 0 150px rgba(255, 255, 255, 0.5); // Iluminación de los márgenes al pasar el mouse
+  }
 `;
 
 const ObjectiveIcon = styled.img`
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   object-fit: contain;
   margin-top: 1rem;
 `;
@@ -33,18 +43,18 @@ const ObjectiveContent = styled.div`
 `;
 
 const ObjectiveTitle = styled.h3`
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   margin-bottom: 0.5rem;
 `;
 
 const ObjectiveDescription = styled.p`
-  font-size: 1rem;
+  font-size: 1.5rem;
 `;
 
 const Objectives = () => {
   return (
     <ObjectivesWrapper id="objectives">
-      <SectionTitle>Objetivos</SectionTitle>
+      <StyledSectionTitle>Objetivos</StyledSectionTitle>
       
       <ObjectiveItem>
         <ObjectiveContent>

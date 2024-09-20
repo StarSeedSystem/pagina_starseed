@@ -21,7 +21,7 @@ const NetworkButton = styled(motion.button)`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1.5rem;
+  margin: 1rem;
 `;
 
 const NetworkIcon = styled.img`
@@ -40,7 +40,7 @@ const ExpandedContent = styled(motion.div)`
   backdrop-filter: blur(10px);
   z-index: 1000;
   overflow-y: auto;
-  padding: 2rem;
+  padding: 0.1rem;
 `;
 
 const CloseButton = styled(motion.button)`

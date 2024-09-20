@@ -9,7 +9,7 @@ const MissionsWrapper = styled(SectionWrapper)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem 1.5rem;
+  padding: 1rem 1.5rem;
 `;
 
 const MissionButtons = styled.div`

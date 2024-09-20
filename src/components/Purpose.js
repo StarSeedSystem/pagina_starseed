@@ -25,12 +25,12 @@ const Icon = styled.img`
 
 const PeaceIcon = styled(Icon)`
   left: 5%;
-  top: 10%;
+  top: 18%;
 `;
 
 const CompassionIcon = styled(Icon)`
   right: 5%;
-  top: 10%;
+  top: 18%;
 `;
 
 const Purpose = () => {

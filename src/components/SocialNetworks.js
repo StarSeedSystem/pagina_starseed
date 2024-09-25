@@ -135,9 +135,7 @@ Cada sección trabaja de manera integrada para crear un sistema democrático rob
 - Artículos y clases con recomendaciones (no restricciones) de conocimientos previos necesarios para entender mejor el contenido. 
 - Opción de obtener certificados e insignias al completar exámenes, validando así el aprendizaje, estas se muestran en los perfiles. 
 Noticias: 
-- Sección de noticias que se categoriza en entidades federativas, zonas, temas o recomendaciones personales, cualquier persona o grupo puede publicar artículos de noticias en cualquier sección y toda información debe ser verificada, se puede seguir cualquier categoría, grupo o persona para recibir sus noticias publicadas. 
-Herramientas Avanzadas: 
-- Acceso a inteligencia artificial (IA) entrenada con información comprobada y con cada contexto individual para garantizar precisión y relevancia.
+- Sección de noticias que se categoriza en entidades federativas, zonas, temas o recomendaciones personales, cualquier persona o grupo puede publicar artículos de noticias en cualquier sección y toda información debe ser verificada, se puede seguir cualquier categoría, grupo o persona para recibir sus noticias publicadas.
 Herramientas Avanzadas: 
 - Acceso a inteligencia artificial (IA) entrenada con información comprobada actualizada, acceso a internet y con cada contexto individual para garantizar precisión y relevancia, esta se puede utilizar en toda la plataforma y es un asistente virtual personalizado entrenado con los valores de la constitución StarSeed.
 - Sección de recomendaciones de orientación vocacional, incluyendo guías para la salud corporal, emocional y espiritual, ayudando a los usuarios a encontrar su camino profesional y personal, con la IA incorporada. 
@@ -167,7 +165,8 @@ Mapas y Actividades:
 - Mapas interactivos donde los usuarios pueden crear publicaciones sobre actividades, espacios recreativos, eventos sociales y culturales. 
 - Incluye calendarios y herramientas democráticas para la organización y seguimiento de eventos públicos con opción de privados para zonas privadas. 
 Democracia Geográfica: 
-- Los usuarios pueden votar por el nombre, la delimitación o tiempo de eventos temporales, entidades federativas o la toponimia (nombramiento de zonas geográficas), integrando el sistema legislativo para una mayor participación comunitaria, respeto y democracia geográfica. Recomendaciones Personalizadas: 
+- Los usuarios pueden votar por el nombre, la delimitación o tiempo de eventos temporales, entidades federativas o la toponimia (nombramiento de zonas geográficas), integrando el sistema legislativo para una mayor participación comunitaria, respeto y democracia geográfica. 
+Recomendaciones Personalizadas: 
 - Opción de usar inteligencia artificial personalizada con la Información de cada usuario para simular interacciones en diferentes contextos con contenido y otras páginas y con los resultados busca la mejor resonancia, armonía y compatibilidad, ofreciendo recomendaciones de amistades, eventos y contenido en una sección dedicada a "recomendaciones". 
 
 La Red Sociocultural está diseñada para enriquecer la vida comunitaria y cultural, proporcionando herramientas que permiten la libre expresión y la organización de actividades sociales, todo dentro de un marco de respeto y paz.`

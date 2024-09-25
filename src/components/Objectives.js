@@ -90,7 +90,7 @@ const Objectives = () => {
         <ObjectiveContent>
           <ObjectiveTitle>Constitución StarSeed</ObjectiveTitle>
           <ObjectiveDescription>
-          Crear democráticamente una constitución starseed que defina las leyes fundamentales que dirijan la sociedad starseed y permitan una civilización evolutiva.
+          Crear democráticamente una constitución StarSeed que defina las leyes fundamentales que dirijan la sociedad StarSeed y permitan una civilización evolutiva.
           </ObjectiveDescription>
         </ObjectiveContent>
         <ObjectiveIcon src={constitucion} alt="Constitución Global" />

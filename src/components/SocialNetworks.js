@@ -155,9 +155,11 @@ La Red Socioeducativa está diseñada para proporcionar una educación de alta c
       Opciones de Privacidad y Permanencia:
 - Los usuarios pueden elegir si su contenido es público o privado.
 - El contenido puede ser temporal, como en el caso de historias, o permanente, en portafolios. 
-Perfiles Diversos: 
+Perfiles Diversos y Grupos: 
 - Creación ilimitada de perfiles para individuos o grupos, facilitando una amplia gama de interacciones y colaboraciones. 
-Interacción y Comentarios: 
+- Se pueden crear o unirse a grupos comunitarios públicos o privados con características especificas para socializar.
+Interacción, Formatos y Comentarios: 
+- La sección cultural está seccionada en 3 opciones: feed 2d, AR y VR; el feed 2d es para pantallas, AR para mezclar opciones 3d virtuales con el entorno físico y el VR son ambientes completamente virtuales (con funcionalidades similares a VRchat)
 - Los usuarios pueden comentar en publicaciones y comentarios en cualquier formato, fomentando la comunicación y el intercambio de ideas. 
 - El contenido se puede filtrar de diversas formas como relevancia, popularidad, cercanía, personalizado. 
 - Se puden usar hashtags, links o apps en publicaciones, comentarios y mensajes.

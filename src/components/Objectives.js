@@ -1,18 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SectionWrapper, SectionTitle } from './ContentSection';
-import guiaParaPaz from '../assets/imagenes/objetivos/guia_para_paz.png';
-import comunidad from '../assets/imagenes/objetivos/comunidad.png';
-import viviendas from '../assets/imagenes/objetivos/viviendas.png';
-import constitucion from '../assets/imagenes/objetivos/constitucion.png';
+import guiaImg from '../assets/imagenes/objetivos/guia_para_paz.png';
+import comunidadImg from '../assets/imagenes/objetivos/comunidad.png';
+import constitucionImg from '../assets/imagenes/objetivos/constitucion.png';
+import viviendasImg from '../assets/imagenes/objetivos/viviendas.png';
 
 const ObjectivesWrapper = styled(SectionWrapper)`
-  // Mantener estilos existentes
-  padding-top: 1rem; // Subir el título
+  padding-top: 1rem;
 `;
 
 const StyledSectionTitle = styled(SectionTitle)`
-  margin-bottom: 3rem; // Aumentar el espacio debajo del título
+  margin-bottom: 3rem;
 `;
 
 const ObjectiveItem = styled.div`
@@ -21,21 +20,20 @@ const ObjectiveItem = styled.div`
   align-items: center;
   margin-bottom: 2rem;
   padding: 1.5rem;
-  border-radius: 150px; // Aumentado para hacer los bordes más redondeados
+  border-radius: 150px;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.4); // Fondo más oscuro y transparente
+  background-color: rgba(0, 0, 0, 0.4);
   transition: box-shadow 1s ease;
 
   &:hover {
-    box-shadow: 0 0 150px rgba(255, 255, 255, 0.5); // Iluminación de los márgenes al pasar el mouse
+    box-shadow: 0 0 150px rgba(255, 255, 255, 0.5);
   }
 `;
 
-const ObjectiveIcon = styled.img`
-  width: 300px;
-  height: 300px;
-  object-fit: contain;
-  margin-top: 1rem;
+const ObjectiveImage = styled.img`
+  width: 200px;
+  height: auto;
+  margin-bottom: 1rem;
 `;
 
 const ObjectiveContent = styled.div`
@@ -54,46 +52,61 @@ const ObjectiveDescription = styled.p`
 const Objectives = () => {
   return (
     <ObjectivesWrapper id="objectives">
-      <StyledSectionTitle>Objetivos</StyledSectionTitle>
+      <StyledSectionTitle>Objetivos Clave</StyledSectionTitle>
       
       <ObjectiveItem>
+        <ObjectiveImage src={guiaImg} alt="Fundamentos Universales" />
         <ObjectiveContent>
-          <ObjectiveTitle>Guía para la Paz</ObjectiveTitle>
+          <ObjectiveTitle>Conceptualización de los Fundamentos Universales</ObjectiveTitle>
           <ObjectiveDescription>
-          Conceptualizar los fundamentos universales con un diccionario y una guía para la paz, incluyendo secciones sobre salud corporal, emocional y espiritual.
+            Diccionario y una guía para la paz comunal y la felicidad individual.
+            Secciones sobre salud física, emocional, social y espiritual, promoviendo el bienestar integral.
+            linktr.ee/alexbordon
           </ObjectiveDescription>
         </ObjectiveContent>
-        <ObjectiveIcon src={guiaParaPaz} alt="Guía para la Paz" />
+      </ObjectiveItem>
+
+      <ObjectiveItem>
+        <ObjectiveImage src={comunidadImg} alt="Comunidades StarSeed" />
+        <ObjectiveContent>
+          <ObjectiveTitle>Creación de Comunidades StarSeed (“Sangha StarSeed” - SSS)</ObjectiveTitle>
+          <ObjectiveDescription>
+            Organizar actividades recreativas y espirituales, charlas, clases y conversaciones grupales.
+            Ofrecer los sistemas político, educativo y cultural en entornos presenciales, fortaleciendo las conexiones humanas.
+          </ObjectiveDescription>
+        </ObjectiveContent>
+      </ObjectiveItem>
+
+      <ObjectiveItem>
+        <ObjectiveImage src={constitucionImg} alt="Constitución Democrática" />
+        <ObjectiveContent>
+          <ObjectiveTitle>Organización de Constitución Democrática (“Matrix StarSeed” - MSS)</ObjectiveTitle>
+          <ObjectiveDescription>
+            Leyes fundamentales que guíen a la Sociedad StarSeed.
+            Derechos, límites y principios que aseguren una civilización evolutiva, próspera, armoniosa y respetuosa.
+          </ObjectiveDescription>
+        </ObjectiveContent>
       </ObjectiveItem>
 
       <ObjectiveItem>
         <ObjectiveContent>
-          <ObjectiveTitle>Comunidades Autosustentables</ObjectiveTitle>
+          <ObjectiveTitle>Desarrollo de la “Red StarSeed” (RSS)</ObjectiveTitle>
           <ObjectiveDescription>
-          Crear comunidades StarSeed donde se realicen actividades recreativas y espirituales, charlas, clases y conversaciones grupales. Estos espacios también servirán como centros de votación públicos para personas sin acceso a dispositivos móviles y para ofrecer el sistema político, educativo y cultural en entornos físicos.
+            Red social digital interconectada, seccionada en tres áreas: Democracia, Educación y Recreación.
+            Integra la participación ciudadana, el aprendizaje continuo y el enriquecimiento cultural en una sola plataforma.
           </ObjectiveDescription>
         </ObjectiveContent>
-        <ObjectiveIcon src={comunidad} alt="Comunidades Autosustentables" />
       </ObjectiveItem>
 
       <ObjectiveItem>
+        <ObjectiveImage src={viviendasImg} alt="Viviendas Sostenibles" />
         <ObjectiveContent>
-          <ObjectiveTitle>Viviendas Ecológicas</ObjectiveTitle>
+          <ObjectiveTitle>Desarrollo de Viviendas Sostenibles y Comunidades Autosuficientes</ObjectiveTitle>
           <ObjectiveDescription>
-          Crear viviendas y promover la implementación del sistema en las sociedades e implementar un sistema económico sustentable ecológico comunista libre con abundancia y respeto para todes.
+            Implementación un sistema económico sustentable, ecológico y comunal.
+            Garantiza abundancia, prosperidad y respeto para todos, promoviendo la armonía con la naturaleza.
           </ObjectiveDescription>
         </ObjectiveContent>
-        <ObjectiveIcon src={viviendas} alt="Viviendas Ecológicas" />
-      </ObjectiveItem>
-
-      <ObjectiveItem>
-        <ObjectiveContent>
-          <ObjectiveTitle>Constitución StarSeed</ObjectiveTitle>
-          <ObjectiveDescription>
-          Crear democráticamente una constitución StarSeed que defina las leyes fundamentales que dirijan la sociedad StarSeed y permitan una civilización evolutiva.
-          </ObjectiveDescription>
-        </ObjectiveContent>
-        <ObjectiveIcon src={constitucion} alt="Constitución Global" />
       </ObjectiveItem>
     </ObjectivesWrapper>
   );

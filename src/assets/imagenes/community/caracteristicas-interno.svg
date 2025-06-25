@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="500" fill="#1A1A1A"/>
+  
+  <!-- Social icons -->
+  <circle cx="150" cy="120" r="40" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="3"/>
+  <path d="M130 120C130 114.477 134.477 110 140 110H160C165.523 110 170 114.477 170 120V130H130V120Z" fill="#4CD1FF"/>
+  <circle cx="150" cy="100" r="10" fill="#4CD1FF"/>
+  
+  <circle cx="250" cy="120" r="40" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="3"/>
+  <path d="M230 120C230 114.477 234.477 110 240 110H260C265.523 110 270 114.477 270 120V130H230V120Z" fill="#4CD1FF"/>
+  <circle cx="250" cy="100" r="10" fill="#4CD1FF"/>
+  
+  <circle cx="350" cy="120" r="40" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="3"/>
+  <path d="M330 120C330 114.477 334.477 110 340 110H360C365.523 110 370 114.477 370 120V130H330V120Z" fill="#4CD1FF"/>
+  <circle cx="350" cy="100" r="10" fill="#4CD1FF"/>
+  
+  <!-- Recreation area -->
+  <rect x="100" y="200" width="300" height="150" rx="10" fill="transparent" stroke="#4CD1FF" stroke-width="3"/>
+  
+  <!-- Ping pong table -->
+  <rect x="120" y="220" width="80" height="50" rx="2" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="2"/>
+  <line x1="160" y1="220" x2="160" y2="270" stroke="#4CD1FF" stroke-width="1"/>
+  <circle cx="140" cy="245" r="5" fill="#4CD1FF" opacity="0.7"/>
+  
+  <!-- Music area -->
+  <path d="M240 240C240 231.716 246.716 225 255 225H295C303.284 225 310 231.716 310 240V250H240V240Z" fill="#4CD1FF" opacity="0.3"/>
+  <path d="M260 250V270" stroke="#4CD1FF" stroke-width="2"/>
+  <path d="M290 250V270" stroke="#4CD1FF" stroke-width="2"/>
+  <path d="M245 270C245 264.477 249.477 260 255 260H295C300.523 260 305 264.477 305 270V280H245V270Z" fill="#4CD1FF" opacity="0.5"/>
+  
+  <!-- Wellness area -->
+  <path d="M150 390C150 379.507 158.507 371 169 371H331C341.493 371 350 379.507 350 390V400C350 410.493 341.493 419 331 419H169C158.507 419 150 410.493 150 400V390Z" fill="#4CD1FF" opacity="0.3"/>
+  <circle cx="200" cy="395" r="15" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="2"/>
+  <circle cx="250" cy="395" r="15" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="2"/>
+  <circle cx="300" cy="395" r="15" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="2"/>
+  
+  <!-- Water effect -->
+  <path d="M170 380C175 375 180 380 185 375C190 370 195 375 200 370" stroke="#4CD1FF" stroke-width="1" opacity="0.8"/>
+  <path d="M270 380C275 375 280 380 285 375C290 370 295 375 300 370" stroke="#4CD1FF" stroke-width="1" opacity="0.8"/>
+</svg>

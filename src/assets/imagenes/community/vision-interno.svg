@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="500" fill="#1A1A1A"/>
+  <circle cx="250" cy="150" r="80" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="6"/>
+  <path d="M250 110C239.5 110 231 118.5 231 129C231 139.5 239.5 148 250 148C260.5 148 269 139.5 269 129C269 118.5 260.5 110 250 110Z" fill="#4CD1FF"/>
+  <path d="M210 170C210 159.5 218.5 151 229 151H271C281.5 151 290 159.5 290 170V180H210V170Z" fill="#4CD1FF"/>
+  <path d="M220 180L230 190H270L280 180" stroke="#4CD1FF" stroke-width="3"/>
+  
+  <path d="M150 260C150 254.477 154.477 250 160 250H340C345.523 250 350 254.477 350 260V340C350 345.523 345.523 350 340 350H160C154.477 350 150 345.523 150 340V260Z" stroke="#4CD1FF" stroke-width="4"/>
+  
+  <path d="M180 280L200 300L220 280" stroke="#4CD1FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="200" y1="280" x2="200" y2="320" stroke="#4CD1FF" stroke-width="3" stroke-linecap="round"/>
+  
+  <path d="M280 320L300 300L320 320" stroke="#4CD1FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="300" y1="320" x2="300" y2="280" stroke="#4CD1FF" stroke-width="3" stroke-linecap="round"/>
+  
+  <path d="M130 380H370" stroke="#4CD1FF" stroke-width="4"/>
+  <circle cx="180" cy="380" r="10" fill="#4CD1FF"/>
+  <circle cx="250" cy="380" r="10" fill="#4CD1FF"/>
+  <circle cx="320" cy="380" r="10" fill="#4CD1FF"/>
+  
+  <path d="M120 420H380" stroke="#4CD1FF" stroke-width="2" stroke-dasharray="6 6"/>
+</svg>

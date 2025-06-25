@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="500" fill="#1A1A1A"/>
+  
+  <!-- Futuristic city silhouette -->
+  <path d="M100 400H400V350C400 350 380 330 360 340C340 350 320 330 300 340C280 350 260 330 240 340C220 350 200 330 180 340C160 350 140 330 120 340C100 350 100 350 100 350V400Z" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="2"/>
+  
+  <!-- Buildings -->
+  <rect x="120" y="280" width="40" height="120" rx="5" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="2"/>
+  <rect x="170" y="250" width="30" height="150" rx="2" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="2"/>
+  <path d="M210 400V270C210 265 215 260 220 260H240C245 260 250 265 250 270V400" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="2"/>
+  <rect x="260" y="300" width="50" height="100" rx="5" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="2"/>
+  <rect x="320" y="230" width="60" height="170" rx="3" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="2"/>
+  
+  <!-- Windows -->
+  <rect x="130" y="290" width="10" height="10" fill="#4CD1FF" opacity="0.6"/>
+  <rect x="140" y="290" width="10" height="10" fill="#4CD1FF" opacity="0.4"/>
+  <rect x="130" y="310" width="10" height="10" fill="#4CD1FF" opacity="0.5"/>
+  <rect x="140" y="310" width="10" height="10" fill="#4CD1FF" opacity="0.3"/>
+  <rect x="130" y="330" width="10" height="10" fill="#4CD1FF" opacity="0.7"/>
+  <rect x="140" y="330" width="10" height="10" fill="#4CD1FF" opacity="0.2"/>
+  
+  <rect x="180" y="260" width="10" height="10" fill="#4CD1FF" opacity="0.5"/>
+  <rect x="180" y="280" width="10" height="10" fill="#4CD1FF" opacity="0.4"/>
+  <rect x="180" y="300" width="10" height="10" fill="#4CD1FF" opacity="0.6"/>
+  <rect x="180" y="320" width="10" height="10" fill="#4CD1FF" opacity="0.3"/>
+  <rect x="180" y="340" width="10" height="10" fill="#4CD1FF" opacity="0.5"/>
+  
+  <rect x="220" y="280" width="10" height="10" fill="#4CD1FF" opacity="0.4"/>
+  <rect x="235" y="280" width="10" height="10" fill="#4CD1FF" opacity="0.6"/>
+  <rect x="220" y="300" width="10" height="10" fill="#4CD1FF" opacity="0.5"/>
+  <rect x="235" y="300" width="10" height="10" fill="#4CD1FF" opacity="0.3"/>
+  <rect x="220" y="320" width="10" height="10" fill="#4CD1FF" opacity="0.7"/>
+  <rect x="235" y="320" width="10" height="10" fill="#4CD1FF" opacity="0.4"/>
+  
+  <!-- Automation elements -->
+  <circle cx="250" cy="150" r="70" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="3" stroke-dasharray="10 5"/>
+  
+  <!-- Robot arm -->
+  <path d="M230 140V180C230 185 235 190 240 190H260C265 190 270 185 270 180V140" stroke="#4CD1FF" stroke-width="3"/>
+  <path d="M230 140H270" stroke="#4CD1FF" stroke-width="3"/>
+  <path d="M240 140L240 110" stroke="#4CD1FF" stroke-width="3"/>
+  <path d="M260 140L260 110" stroke="#4CD1FF" stroke-width="3"/>
+  <path d="M240 110H260" stroke="#4CD1FF" stroke-width="3"/>
+  <circle cx="250" cy="110" r="20" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="3"/>
+  <circle cx="250" cy="110" r="10" fill="#4CD1FF" opacity="0.6"/>
+  
+  <!-- Data flows -->
+  <path d="M150 150C170 130 200 120 240 130" stroke="#4CD1FF" stroke-width="1" stroke-dasharray="5 5"/>
+  <path d="M350 150C330 130 300 120 260 130" stroke="#4CD1FF" stroke-width="1" stroke-dasharray="5 5"/>
+  <path d="M250 200V230" stroke="#4CD1FF" stroke-width="1" stroke-dasharray="5 5"/>
+  
+  <!-- Energy symbols -->
+  <circle cx="150" cy="150" r="15" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="2"/>
+  <path d="M145 145L155 155M145 155L155 145" stroke="#4CD1FF" stroke-width="2"/>
+  <circle cx="350" cy="150" r="15" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="2"/>
+  <path d="M350 140V160M340 150H360" stroke="#4CD1FF" stroke-width="2"/>
+</svg>

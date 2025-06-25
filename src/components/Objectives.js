@@ -28,12 +28,29 @@ const ObjectiveItem = styled.div`
   &:hover {
     box-shadow: 0 0 150px rgba(255, 255, 255, 0.5);
   }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    border-radius: 100px;
+  }
+
+  @media (max-width: 480px) {
+    border-radius: 50px;
+  }
 `;
 
 const ObjectiveImage = styled.img`
   width: 200px;
   height: auto;
   margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    width: 150px;
+  }
+
+  @media (max-width: 480px) {
+    width: 120px;
+  }
 `;
 
 const ObjectiveContent = styled.div`
@@ -43,10 +60,26 @@ const ObjectiveContent = styled.div`
 const ObjectiveTitle = styled.h3`
   font-size: 2.3rem;
   margin-bottom: 0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const ObjectiveDescription = styled.p`
   font-size: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.3rem;
+  }
 `;
 
 const Objectives = () => {

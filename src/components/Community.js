@@ -18,23 +18,7 @@ const CommunityContent = styled.div`
   }
 `;
 
-const JoinButton = styled.a`
-  display: inline-block;
-  background: ${props => props.theme.colors.primary};
-  color: white;
-  padding: 1rem 2.5rem;
-  border-radius: 30px;
-  text-decoration: none;
-  font-size: 1.6rem;
-  font-weight: bold;
-  margin-top: 1rem;
-  transition: transform 0.3s ease, background-color 0.3s ease;
 
-  &:hover {
-    transform: scale(1.05);
-    background: ${props => props.theme.colors.secondary};
-  }
-`;
 
 const Community = () => {
   return (
@@ -47,9 +31,6 @@ const Community = () => {
         <p>
           ¿Listo para ser parte del cambio? Únete a nosotros y descubre cómo la combinación de tecnología, colaboración y visión puede transformar nuestras vidas y el mundo.
         </p>
-        <JoinButton href="#" target="_blank" rel="noopener noreferrer">
-          Únete ahora
-        </JoinButton>
       </CommunityContent>
     </CommunityWrapper>
   );

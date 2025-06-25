@@ -8,11 +8,12 @@ import Purpose from './components/Purpose';
 import Missions from './components/Missions';
 import Objectives from './components/Objectives';
 import SocialNetworks from './components/SocialNetworks';
+import StarSeedCommunity from './components/StarSeedCommunity'; // Importar el nuevo componente
 import Community from './components/Community';
 import Footer from './components/Footer';
 import AnimatedBackground from './components/AnimatedBackground';
 import FloatingMenu from './components/FloatingMenu';
-import logo from './assets/imagenes/simbolo_starseed.png'; // Ajusta la ruta según sea necesario
+const logo = process.env.PUBLIC_URL + '/logo512.png'; // Logo de la carpeta public
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Missions id="missions" />
             <Objectives id="objectives" />
             <SocialNetworks id="social-networks" />
+            <StarSeedCommunity id="starseed-community" /> {/* Añadir el nuevo componente aquí */}
             <Community id="community" />
           </main>
           <Footer />

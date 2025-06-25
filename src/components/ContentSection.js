@@ -8,10 +8,11 @@ export const SectionWrapper = styled(motion.section)`
   margin: 1.5rem 0;
   border-radius: 25px;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-  overflow: hidden;
+  /* overflow: hidden; */ /* Removed to allow scrolling */
   
   @media (max-width: 768px) {
-    padding: 2rem 0.8rem;
+    padding: 1.5rem 0.8rem; /* Reduced top/bottom padding */
+    margin: 1rem 0; /* Reduced top/bottom margin */
   }
 `;
 
@@ -26,8 +27,12 @@ export const SectionTitle = styled(motion.h2)`
   hyphens: auto;
   
   @media (max-width: 768px) {
-    font-size: 2.8rem;
+    font-size: 2.5rem; /* Reducido para tablet */
     margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2rem; /* Reducido para móvil */
   }
 `;
 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="500" fill="#1A1A1A"/>
+  
+  <!-- Smartphone outline -->
+  <rect x="175" y="50" width="150" height="250" rx="20" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="4"/>
+  <rect x="195" y="80" width="110" height="180" rx="5" fill="#4CD1FF" opacity="0.2"/>
+  
+  <!-- App interface elements -->
+  <rect x="205" y="100" width="90" height="20" rx="5" fill="#4CD1FF" opacity="0.6"/>
+  <rect x="205" y="130" width="40" height="40" rx="5" fill="#4CD1FF" opacity="0.4"/>
+  <rect x="255" y="130" width="40" height="40" rx="5" fill="#4CD1FF" opacity="0.4"/>
+  <rect x="205" y="180" width="40" height="40" rx="5" fill="#4CD1FF" opacity="0.4"/>
+  <rect x="255" y="180" width="40" height="40" rx="5" fill="#4CD1FF" opacity="0.4"/>
+  <circle cx="250" cy="250" r="10" fill="#4CD1FF" opacity="0.8"/>
+  
+  <!-- Connected devices -->
+  <path d="M150 350C150 339.507 158.507 331 169 331H331C341.493 331 350 339.507 350 350V400C350 410.493 341.493 419 331 419H169C158.507 419 150 410.493 150 400V350Z" stroke="#4CD1FF" stroke-width="3"/>
+  
+  <!-- Calendar/Schedule -->
+  <rect x="170" y="350" width="80" height="50" rx="5" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="2"/>
+  <line x1="180" y1="360" x2="240" y2="360" stroke="#4CD1FF" stroke-width="2"/>
+  <line x1="180" y1="370" x2="220" y2="370" stroke="#4CD1FF" stroke-width="2"/>
+  <line x1="180" y1="380" x2="230" y2="380" stroke="#4CD1FF" stroke-width="2"/>
+  <line x1="180" y1="390" x2="210" y2="390" stroke="#4CD1FF" stroke-width="2"/>
+  
+  <!-- Connected screens -->
+  <rect x="270" y="350" width="60" height="50" rx="5" fill="#1A1A1A" stroke="#4CD1FF" stroke-width="2"/>
+  <path d="M280 375L295 365L310 375" stroke="#4CD1FF" stroke-width="2"/>
+  <line x1="295" y1="365" x2="295" y2="385" stroke="#4CD1FF" stroke-width="2"/>
+  
+  <!-- Connection lines -->
+  <path d="M250 300V330" stroke="#4CD1FF" stroke-width="2" stroke-dasharray="4 4"/>
+  <path d="M210 330L250 300" stroke="#4CD1FF" stroke-width="2" stroke-dasharray="4 4"/>
+  <path d="M290 330L250 300" stroke="#4CD1FF" stroke-width="2" stroke-dasharray="4 4"/>
+</svg>

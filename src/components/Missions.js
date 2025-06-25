@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { SectionWrapper, SectionTitle } from './ContentSection';
 import politicaImg from '../assets/imagenes/misiones/politica.png';
 import educacionImg from '../assets/imagenes/misiones/educacion.png';
@@ -14,26 +15,79 @@ const MissionsWrapper = styled(SectionWrapper)`
 
 const MissionButtons = styled.div`
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem 0;
+  
+  @media (max-width: 768px) {
+    gap: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 1rem;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 700px;
+  margin: 0.5rem;
+`;
+
+const ButtonTitle = styled.span`
+  margin-top: 0.8rem;
+  color: ${props => props.theme.colors.lightText};
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: 150px;
+`;
+
+const MissionButton = styled(motion.button)`
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      width: 100px;
+      height: 100px;
+    }
+
+    @media (max-width: 480px) {
+      width: 80px;
+      height: 80px;
+    }
+  }
 `;
 
 const MissionTitle = styled.h3`
   font-size: 2.2rem;
-  cursor: pointer;
-  padding: 1rem;
-  margin: 0.5rem 0;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.1);
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin: 1rem 0;
   text-align: center;
   width: 100%;
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: scale(1.02);
+  color: ${props => props.theme.colors.primary};
+  
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
   }
 `;
 
@@ -51,6 +105,11 @@ const MissionContent = styled.div`
   opacity: ${props => props.isActive ? '1' : '0'};
   transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
   padding: ${props => props.isActive ? '1rem' : '0 1rem'};
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    font-size: 1.6rem;
+  }
 `;
 
 const MissionText = styled.p`
@@ -63,6 +122,11 @@ const MissionImage = styled.img`
   height: auto;
   border-radius: 10px;
   flex: 1;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 350px;
+  }
 `;
 
 const Missions = () => {
@@ -89,32 +153,47 @@ const Missions = () => {
 
   return (
     <MissionsWrapper id="missions">
-      <SectionTitle>Misiones; pilares fundamentales</SectionTitle>
+      <SectionTitle>Misiones: pilares fundamentales</SectionTitle>
+      
       <MissionButtons>
-        <MissionTitle onClick={() => handleMissionClick('politica')}>
-          Sistema Político y Económico Democrático y Ontocrático
-        </MissionTitle>
-        <MissionContent isActive={activeMission === 'politica'}>
-          <MissionText>{missionData.politica.text}</MissionText>
-          <MissionImage src={missionData.politica.img} alt="Política" />
-        </MissionContent>
-
-        <MissionTitle onClick={() => handleMissionClick('educacion')}>
-          Sistema Educativo Libre y Universal
-        </MissionTitle>
-        <MissionContent isActive={activeMission === 'educacion'}>
-          <MissionText>{missionData.educacion.text}</MissionText>
-          <MissionImage src={missionData.educacion.img} alt="Educación" />
-        </MissionContent>
-
-        <MissionTitle onClick={() => handleMissionClick('cultura')}>
-          Red Social Cultural y Recreativa
-        </MissionTitle>
-        <MissionContent isActive={activeMission === 'cultura'}>
-          <MissionText>{missionData.cultura.text}</MissionText>
-          <MissionImage src={missionData.cultura.img} alt="Cultura" />
-        </MissionContent>
+        {Object.entries({
+          politica: 'Sistema Político',
+          educacion: 'Educación',
+          cultura: 'Cultura'
+        }).map(([key, title]) => (
+          <ButtonContainer key={key}>
+            <MissionButton
+              onClick={() => handleMissionClick(key)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label={title}
+            >
+              <img 
+                src={missionData[key].img} 
+                alt={title} 
+                title={title}
+              />
+            </MissionButton>
+            <ButtonTitle>{title}</ButtonTitle>
+          </ButtonContainer>
+        ))}
       </MissionButtons>
+      
+      {/* Mission Content Sections */}
+      <MissionContent isActive={activeMission === 'politica'}>
+        <MissionText>{missionData.politica.text}</MissionText>
+        <MissionImage src={missionData.politica.img} alt="Política" />
+      </MissionContent>
+
+      <MissionContent isActive={activeMission === 'educacion'}>
+        <MissionText>{missionData.educacion.text}</MissionText>
+        <MissionImage src={missionData.educacion.img} alt="Educación" />
+      </MissionContent>
+
+      <MissionContent isActive={activeMission === 'cultura'}>
+        <MissionText>{missionData.cultura.text}</MissionText>
+        <MissionImage src={missionData.cultura.img} alt="Cultura" />
+      </MissionContent>
     </MissionsWrapper>
   );
 };

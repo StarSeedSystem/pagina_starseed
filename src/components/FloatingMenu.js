@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const MenuWrapper = styled.div`
@@ -60,10 +60,25 @@ const FloatingMenu = () => {
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    // Listen for the custom event from StarSeedCommunity
+    const handleCommunitySectionClick = (event) => {
+      const { sectionId } = event.detail;
+      scrollToSection(sectionId);
+    };
+
+    window.addEventListener('communitySectionClicked', handleCommunitySectionClick);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('communitySectionClicked', handleCommunitySectionClick);
+    };
+  }, []);
 
   return (
     <MenuWrapper>
@@ -73,7 +88,7 @@ const FloatingMenu = () => {
         <MenuItem onClick={() => scrollToSection('missions')}>Misiones</MenuItem>
         <MenuItem onClick={() => scrollToSection('objectives')}>Objetivos</MenuItem>
         <MenuItem onClick={() => scrollToSection('social-networks')}>Redes Sociales</MenuItem>
-        <MenuItem onClick={() => scrollToSection('community')}>Comunidad</MenuItem>
+        <MenuItem onClick={() => scrollToSection('starseed-community')}>Comunidades</MenuItem>
       </MenuContent>
       <MenuButton onClick={toggleMenu}>☰</MenuButton>
     </MenuWrapper>

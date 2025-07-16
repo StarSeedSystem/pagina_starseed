@@ -1,5 +1,8 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const changeBackground = keyframes`
   0% { background-position: 0% 50%; }
@@ -38,31 +41,37 @@ const HeaderWrapper = styled.header`
   }
 `;
 
-const Logo = styled.img`
-  width: auto;
-  height: auto;
-  max-width: min(30vw, 300px); /* Maximum of 30% viewport width or 300px, whichever is smaller */
-  max-height: 25vh; /* Limit height to 25% of viewport height */
+const LogoContainer = styled.div`
+  width: 100%;
+  max-width: min(50vw, 550px); /* Aumentado */
   margin: 0 auto 20px;
-  display: block;
   z-index: 10;
   position: relative;
-  object-fit: contain;
-  padding: 0 10px;
-  box-sizing: border-box;
-  
-  /* Ensure it never exceeds viewport */
+
+  .slick-slide img {
+    width: 100%;
+    height: auto;
+    max-height: 40vh; /* Aumentado */
+    object-fit: contain;
+  }
+
+  .slick-dots, .slick-arrow {
+    display: none !important;
+  }
+
   @media (max-width: 1200px) {
-    max-width: min(40vw, 300px);
+    max-width: min(90vw, 950px); /* Aumentado */
   }
   
   @media (max-width: 768px) {
-    max-width: min(60vw, 300px);
+    max-width: min(60vw, 650px); /* Aumentado */
   }
   
   @media (max-width: 480px) {
-    max-width: 80vw;
-    max-height: 30vh;
+    max-width: 90vw; /* Aumentado */
+    .slick-slide img {
+      max-height: 40vh; /* Aumentado y movido al selector correcto */
+    }
   }
 `;
 
@@ -86,10 +95,31 @@ const Subtitle = styled.h2`
   text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 `;
 
-const Header = ({ logo, id }) => {
+const Header = ({ logos, id }) => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    fade: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    pauseOnHover: false,
+  };
+
   return (
     <HeaderWrapper id={id}>
-      <Logo src={logo} alt="Proyecto StarSeed Logo" />
+      <LogoContainer>
+        <Slider {...settings}>
+          {logos.map((logo, index) => (
+            <div key={index}>
+              <img src={logo} alt={`StarSeed Logo ${index + 1}`} />
+            </div>
+          ))}
+        </Slider>
+      </LogoContainer>
       <TextContainer>
         <Title>Sociedad StarSeed</Title>
         <Subtitle>El sistema social (seed) de evolución universal (star)</Subtitle>

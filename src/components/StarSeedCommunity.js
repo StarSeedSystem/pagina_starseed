@@ -16,6 +16,20 @@ import fase2Interno from '../assets/images/community/fase2-interno.png';
 import fase3Interno from '../assets/images/community/fase3-interno.png';
 import ecosistemaInterno from '../assets/images/community/ecosistema-interno.png';
 
+// Importar nuevas imágenes para Fase 1
+import fase1img1 from '../assets/nuevas_imagenes/6 comunidades/fase 1/1 interior.png';
+import fase1img2 from '../assets/nuevas_imagenes/6 comunidades/fase 1/2 playa.png';
+import fase1img3 from '../assets/nuevas_imagenes/6 comunidades/fase 1/3 zonas.png';
+import fase1img4 from '../assets/nuevas_imagenes/6 comunidades/fase 1/4 zonas comunidad.png';
+import fase1img5 from '../assets/nuevas_imagenes/6 comunidades/fase 1/5 comunidad.png';
+import fase1img6 from '../assets/nuevas_imagenes/6 comunidades/fase 1/6 comunidad playa.png';
+import fase1img7 from '../assets/nuevas_imagenes/6 comunidades/fase 1/7 playa.png';
+import fase1img8 from '../assets/nuevas_imagenes/6 comunidades/fase 1/8 comunidad.png';
+import fase1img9 from '../assets/nuevas_imagenes/6 comunidades/fase 1/9 playa.png';
+
+// Importar nueva imagen para Ecosistema
+import ecosistemaImg1 from '../assets/nuevas_imagenes/6 comunidades/ecosistema/1 amor evolucion.png';
+
 // Reutilizamos los estilos del componente SocialNetworks
 const MainDescription = styled.p`
   text-align: center;
@@ -46,8 +60,8 @@ const NetworkButton = styled(motion.button)`
   align-items: center;
   
   img {
-    width: 150px;
-    height: 150px;
+    width: 550px;
+    height: 550px;
     object-fit: contain;
     transition: transform 0.3s ease;
     
@@ -56,13 +70,13 @@ const NetworkButton = styled(motion.button)`
     }
 
     @media (max-width: 768px) {
-      width: 120px;
-      height: 120px;
+      width: 500px;
+      height: 500px;
     }
 
     @media (max-width: 480px) {
-      width: 100px;
-      height: 100px;
+      width: 300px;
+      height: 300px;
     }
   }
 `;
@@ -396,14 +410,40 @@ const StarSeedCommunity = () => {
           <h3>Fase 1: La Semilla</h3>
           <TextBlock>
             <h4>Creando el Primer Centro Social Magnético</h4>
-            <p>Todo gran cambio comienza con un primer paso audaz y atractivo. Esta fase se centra en crear un espacio físico que actúe como un imán para la comunidad, un verdadero santuario para el cuerpo y el alma.</p>
+            <ContentImage src={fase1img1} alt="Interior del centro comunitario" className="float-right" />
+            <p>Todo gran cambio comienza con un primer paso audaz y atractivo. Esta fase se centra en crear un espacio físico que actúe como un imán para la comunidad, un verdadero santuario para el cuerpo y el alma. Este centro no es solo un edificio, sino un ecosistema vivo de bienestar, diseñado para nutrir cada aspecto del ser humano: físico, emocional, mental y espiritual.</p>
+            <p>Imagina un lugar donde la arquitectura se fusiona con la naturaleza, donde cada rincón está pensado para inspirar paz y conexión. Contará con áreas de relajación, espacios para terapias holísticas, nutrición consciente y actividades que fomentan el crecimiento personal y colectivo.</p>
+          </TextBlock>
+
+          <TextBlock>
+            <h4>Zonas de Bienestar y Nutrición Consciente</h4>
+            <ContentImage src={fase1img2} alt="Playa serena" className="float-left" />
+            <p>El centro integrará zonas especializadas para el bienestar. Esto incluye áreas para la meditación, yoga, y otras prácticas contemplativas. Además, un componente clave será la nutrición, con una cocina comunitaria y un restaurante que ofrezca alimentos orgánicos, locales y preparados con amor, promoviendo una dieta que sane y revitalice.</p>
+            <ContentImage src={fase1img3} alt="Zonas de la comunidad" className="float-right" />
+            <p>Se crearán huertos comunitarios donde los miembros podrán cultivar sus propios alimentos, reconectando con la tierra y los ciclos naturales. Este enfoque en la soberanía alimentaria es fundamental para la resiliencia y la salud de la comunidad.</p>
+          </TextBlock>
+
+          <TextBlock>
+            <h4>Comunidad y Conexión Humana</h4>
+            <ContentImage src={fase1img4} alt="Zonas de la comunidad Starseed" className="float-left" />
+            <p>Más allá de las instalaciones, el corazón de la Fase 1 es la gente. El centro será un lugar de encuentro, donde se tejerán lazos profundos y significativos. Se organizarán eventos, talleres y círculos de palabra para fomentar la comunicación auténtica y el apoyo mutuo. Será un refugio seguro para la expresión y la vulnerabilidad.</p>
+            <ContentImage src={fase1img5} alt="Comunidad Starseed reunida" className="float-right" />
+            <p>La Fase 1 es la base sobre la cual se construirá todo lo demás. Es la materialización de un sueño, un faro de luz que atraerá a aquellos que anhelan una forma de vida más consciente, conectada y llena de propósito.</p>
+            <ContentImage src={fase1img6} alt="Comunidad en la playa" className="float-left" />
+            <p>Este primer centro no solo servirá como modelo, sino que también generará la energía y los recursos necesarios para expandir la visión StarSeed a nuevas geografías y comunidades.</p>
+          </TextBlock>
+
+          <TextBlock>
+            <h4>Integración con la Naturaleza</h4>
+            <ContentImage src={fase1img7} alt="Playa y naturaleza" className="float-right" />
+            <p>Un pilar fundamental del diseño del centro es su integración armónica con el entorno natural. Se utilizarán principios de bioconstrucción y permacultura para minimizar el impacto ecológico y maximizar la conexión con la Tierra. Los espacios al aire libre serán tan importantes como los interiores, con jardines, senderos y áreas para disfrutar de la belleza del paisaje.</p>
+            <ContentImage src={fase1img8} alt="Comunidad Starseed en la naturaleza" className="float-left" />
+            <p>La naturaleza no será un mero telón de fondo, sino un participante activo en la sanación y el bienestar de la comunidad. Se promoverán actividades como caminatas conscientes, baños de bosque y ceremonias al aire libre para honrar y celebrar nuestra conexión con el planeta.</p>
+            <ContentImage src={fase1img9} alt="Playa paradisíaca" className="float-right" />
+            <p>Esta primera semilla es un compromiso con la vida, un acto de co-creación con la Tierra para manifestar un futuro donde la humanidad y la naturaleza prosperen en equilibrio y armonía.</p>
           </TextBlock>
           
-          <ContentImage 
-            src={require('../assets/images/community/fase1/Adobe Express - file (1).png')} 
-            alt="Centro Social Magnético"
-            className="float-left"
-          />
+
 
           <TextBlock>
             <h4>Diseño y Ambiente: El Templo Moderno</h4>
@@ -416,32 +456,14 @@ const StarSeedCommunity = () => {
           </TextBlock>
 
           <TextBlock>
-            <ContentImage 
-              src={require('../assets/images/community/fase1/Adobe Express - file (3).png')} 
-              alt="Auditorio Principal"
-              className="float-left"
-              style={{ maxWidth: '45%', margin: '2rem 2rem 2rem 0' }}
-            />
             <p>El <strong>Auditorio Principal</strong> es el corazón de nuestro centro, diseñado para albergar eventos grupales, conferencias y talleres. Con capacidad para cientos de personas, este espacio versátil cuenta con tecnología de punta en sonido e iluminación, adaptándose a todo tipo de presentaciones y actividades comunitarias.</p>
           </TextBlock>
 
           <TextBlock>
-            <ContentImage 
-              src={require('../assets/images/community/fase1/Adobe Express - file (4).png')} 
-              alt="Zonas de Sanación"
-              className="float-right"
-              style={{ maxWidth: '50%', margin: '2rem 0 2rem 2rem' }}
-            />
             <p>Nuestras <strong>Zonas de Sanación</strong> ofrecen un refugio para el bienestar integral. Con terapeutas certificados y un ambiente diseñado para la relajación, estas áreas están dedicadas a terapias alternativas como masajes, acupuntura, reiki y limpiezas energéticas.</p>
           </TextBlock>
 
           <TextBlock>
-            <ContentImage 
-              src={require('../assets/images/community/fase1/Adobe Express - file (5).png')} 
-              alt="Experiencias Elementales"
-              className="float-left"
-              style={{ maxWidth: '55%', margin: '2rem 2rem 2rem 0' }}
-            />
             <p>Las <strong>Experiencias Elementales</strong> conectan a los visitantes con los elementos de la naturaleza. El Temazcal representa el fuego y la purificación, mientras que las áreas de agua ofrecen terapias de contraste con baños de hielo y calor. Cada espacio está diseñado para estimular los sentidos y promover la sanación profunda.</p>
           </TextBlock>
           
@@ -456,11 +478,7 @@ const StarSeedCommunity = () => {
             </ul>
           </TextBlock>
 
-          <ContentImage 
-            src={require('../assets/images/community/fase1/Adobe Express - file (2).png')}
-            alt="Modelo Económico"
-            className="float-right"
-          />
+
 
           <TextBlock>
             <h4>El Modelo Económico Inteligente</h4>
@@ -511,11 +529,7 @@ const StarSeedCommunity = () => {
             <p>Con la comunidad floreciendo y la Fundación creciendo, el sistema evoluciona. Es el momento de cosechar los primeros frutos: expandir la visión, integrar viviendas y usar la tecnología para liberar nuestro verdadero potencial.</p>
           </TextBlock>
           
-          <ContentImage 
-            src={require('../assets/images/community/fase2/Adobe Express - file.png')} 
-            alt="Tecnología con Propósito"
-            className="float-left"
-          />
+
           
           <TextBlock>
             <h4>Implementación y Expansión</h4>
@@ -523,22 +537,10 @@ const StarSeedCommunity = () => {
           </TextBlock>
 
           <TextBlock>
-            <ContentImage 
-              src={require('../assets/images/community/fase2/Adobe Express - file (2).png')} 
-              alt="Tecnología en Acción"
-              className="float-left"
-              style={{ maxWidth: '50%', margin: '2rem 2rem 2rem 0' }}
-            />
             <p>La <strong>Tecnología en Acción</strong> se integra de manera fluida en nuestra vida diaria. Los sistemas automatizados trabajan en armonía con los residentes, optimizando el uso de recursos y liberando tiempo para actividades creativas y de crecimiento personal.</p>
           </TextBlock>
 
           <TextBlock>
-            <ContentImage 
-              src={require('../assets/images/community/fase2/Adobe Express - file (3).png')} 
-              alt="Viviendas Sostenibles"
-              className="float-right"
-              style={{ maxWidth: '55%', margin: '2rem 0 2rem 2rem' }}
-            />
             <p>Nuestras <strong>Viviendas Sostenibles</strong> representan la armonía entre tecnología y naturaleza. Construidas con materiales ecológicos y equipadas con sistemas autosustentables, ofrecen un espacio de vida que respeta el medio ambiente mientras proporciona todas las comodidades modernas.</p>
           </TextBlock>
 
@@ -555,12 +557,7 @@ const StarSeedCommunity = () => {
             </ul>
           </TextBlock>
 
-          <ContentImage 
-            src={require('../assets/images/community/fase2/Adobe Express - file (1).png')} 
-            alt="Automatización y Tecnología"
-            className="float-right"
-            style={{ maxWidth: '48%', margin: '1.5rem 0 2rem 2.5rem' }}
-          />
+
 
           <TextBlock>
             <h4>Expansión Modular y Autosuficiencia</h4>
@@ -611,12 +608,7 @@ const StarSeedCommunity = () => {
             <p>Esta es la culminación de la visión, donde el trabajo laboral es reemplazado por la creatividad y la pasión. Un mundo donde los recursos, medios y técnicas de producción son colectivos, y la vida fluye libre de jerarquías y escasez. Bienvenidos a la revolución social.</p>
           </TextBlock>
 
-          <ContentImage 
-            src={require('../assets/images/community/fase3/Adobe Express - file (3).png')} 
-            alt="Tecnología al Servicio de Todos"
-            className="float-left"
-            style={{ maxWidth: '50%', margin: '1.5rem 2rem 2rem 0' }}
-          />
+
 
           <TextBlock>
             <h4>La Economía y Sociedad del Futuro: Comunismo StarSeed</h4>
@@ -624,22 +616,10 @@ const StarSeedCommunity = () => {
           </TextBlock>
 
           <TextBlock>
-            <ContentImage 
-              src={require('../assets/images/community/fase3/Adobe Express - file (1).png')} 
-              alt="Visión de la Fase 3"
-              className="float-left"
-              style={{ maxWidth: '48%', margin: '2rem 2rem 2rem 0' }}
-            />
             <p>La <strong>Visión de la Fase 3</strong> representa la materialización de nuestro sueño colectivo: una sociedad donde la tecnología y la conciencia se entrelazan para crear un mundo de abundancia y armonía. Cada elemento está diseñado para potenciar el bienestar individual y comunitario.</p>
           </TextBlock>
 
           <TextBlock>
-            <ContentImage 
-              src={require('../assets/images/community/fase3/Adobe Express - file (2).png')} 
-              alt="Comunidad en Armonía"
-              className="float-right"
-              style={{ maxWidth: '52%', margin: '2rem 0 2rem 2rem' }}
-            />
             <p>La <strong>Comunidad en Armonía</strong> es el corazón de nuestra visión. Espacios diseñados para fomentar la conexión humana, el crecimiento personal y la colaboración creativa. Aquí, cada individuo encuentra su lugar y propósito dentro del tejido social.</p>
           </TextBlock>
 
@@ -654,32 +634,14 @@ const StarSeedCommunity = () => {
           </TextBlock>
 
           <TextBlock>
-            <ContentImage 
-              src={require('../assets/images/community/fase3/Adobe Express - file (4).png')} 
-              alt="Tecnología Avanzada"
-              className="float-left"
-              style={{ maxWidth: '45%', margin: '2rem 2rem 2rem 0' }}
-            />
             <p>Nuestra <strong>Tecnología Avanzada</strong> está diseñada para ser intuitiva y accesible. Desde sistemas de inteligencia artificial hasta herramientas de fabricación personal, cada innovación está al servicio del desarrollo humano y la sostenibilidad ambiental.</p>
           </TextBlock>
 
           <TextBlock>
-            <ContentImage 
-              src={require('../assets/images/community/fase3/Adobe Express - file (5).png')} 
-              alt="Vida Sostenible"
-              className="float-right"
-              style={{ maxWidth: '48%', margin: '2rem 0 2rem 2rem' }}
-            />
             <p>La <strong>Vida Sostenible</strong> se integra en cada aspecto de nuestra comunidad. Desde la arquitectura bioclimática hasta los sistemas de producción de alimentos, cada elemento está pensado para minimizar nuestro impacto ambiental mientras maximizamos la calidad de vida.</p>
           </TextBlock>
 
           <TextBlock>
-            <ContentImage 
-              src={require('../assets/images/community/fase3/Adobe Express - file (6).png')} 
-              alt="Comunidad Global"
-              className="float-left"
-              style={{ maxWidth: '50%', margin: '2rem 2rem 2rem 0' }}
-            />
             <p>Nuestra <strong>Comunidad Global</strong> se extiende más allá de las fronteras físicas. A través de la tecnología y las redes de colaboración, estamos construyendo puentes entre culturas y naciones, creando una red mundial de comunidades autosostenibles que comparten conocimientos y recursos.</p>
           </TextBlock>
 
@@ -712,17 +674,13 @@ const StarSeedCommunity = () => {
         <>
           <h3>El Ecosistema StarSeed</h3>
           <TextBlock>
-            <h4>La Red Global de Comunidades Autosostenibles</h4>
-            <p>Bienvenido al Ecosistema StarSeed, una red interconectada de comunidades autosostenibles que trabajan en armonía para crear un nuevo paradigma de convivencia humana. Este no es solo un proyecto local, sino una visión global que se expande como una red de conciencia en todo el planeta.</p>
+            <h4>Una Red de Comunidades Interconectadas</h4>
+            <ContentImage src={ecosistemaImg1} alt="Amor y evolución en el ecosistema" className="float-left" />
+            <p>El Ecosistema StarSeed es la visión a gran escala: una red global de comunidades soberanas y autosuficientes, unidas por un propósito común y valores compartidos. No se trata de crear asentamientos aislados, sino de tejer una red de luz y conciencia que abarque todo el planeta.</p>
+            <p>Cada comunidad, o "nodo", en el ecosistema funcionará como un centro de innovación y regeneración, contribuyendo con sus dones únicos a la red. La colaboración y el intercambio de conocimientos, recursos y talentos serán los pilares de este sistema interconectado, creando una sinergia que potenciará el crecimiento de todos.</p>
           </TextBlock>
 
           <TextBlock>
-            <ContentImage 
-              src={require('../assets/images/community/ecosistema/ecosistema.png')}
-              alt="Red Global de Comunidades"
-              className="float-left"
-              style={{ maxWidth: '50%', margin: '1.5rem 2rem 2rem 0' }}
-            />
             <p>Nuestra <strong>Red Global de Comunidades</strong> representa la visión de un mundo interconectado, donde cada nodo es una comunidad autosostenible que contribuye al bienestar colectivo. Esta red facilita el intercambio de conocimientos, recursos y apoyo mutuo entre comunidades de todo el mundo.</p>
           </TextBlock>
 
@@ -739,12 +697,6 @@ const StarSeedCommunity = () => {
           </TextBlock>
 
           <TextBlock>
-            <ContentImage 
-              src={require('../assets/images/community/ecosistema/Adobe Express - file (3).png')} 
-              alt="Intercambio Global"
-              className="float-right"
-              style={{ maxWidth: '48%', margin: '2rem 0 2rem 2.5rem' }}
-            />
             <p>El <strong>Intercambio Global</strong> es el corazón de nuestro ecosistema. A través de plataformas digitales seguras, las comunidades pueden compartir recursos, conocimientos y experiencias, creando una red de apoyo mutuo que trasciende fronteras geográficas y culturales.</p>
           </TextBlock>
 

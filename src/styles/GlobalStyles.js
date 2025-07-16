@@ -61,7 +61,9 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const AppWrapper = styled.div`
-  min-height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
   display: flex;
   flex-direction: column;
 `;

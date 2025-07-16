@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import { SectionWrapper, SectionTitle } from './ContentSection';
-import compasion from '../assets/imagenes/proposito/compasion.png';
-import paloma from '../assets/imagenes/proposito/paloma.png';
+import libertad from '../assets/nuevas_imagenes/2 proposito/iconos (externos)/libertad.png';
+import paz from '../assets/nuevas_imagenes/2 proposito/iconos (externos)/paz.png';
+import union from '../assets/nuevas_imagenes/2 proposito/iconos (externos)/union.png';
+import democracia from '../assets/nuevas_imagenes/2 proposito/comunismo ontocratico (interno de boton)/democracia.png';
+import progreso from '../assets/nuevas_imagenes/2 proposito/comunismo ontocratico (interno de boton)/progreso.png';
+import transhumanismo from '../assets/nuevas_imagenes/2 proposito/comunismo ontocratico (interno de boton)/transhumanismo.png';
 
 const PurposeWrapper = styled(SectionWrapper)`
   padding: 1rem 1.5rem;
@@ -10,6 +17,11 @@ const PurposeWrapper = styled(SectionWrapper)`
 `;
 
 const TitleContainer = styled.div`
+  text-align: center;
+  margin-bottom: 1rem;
+`;
+
+const ContentLayout = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,8 +30,12 @@ const TitleContainer = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 1.5rem;
   }
+`;
+
+const BottomImageContainer = styled.div`
+  text-align: center;
+  margin-top: 2rem;
 `;
 
 const PurposeContent = styled.p`
@@ -41,13 +57,13 @@ const PurposeContent = styled.p`
 
 const PurposeImage = styled.img`
   width: 15vw;
-  max-width: 150px; /* Tamaño máximo para desktop */
-  min-width: 80px;  /* Tamaño mínimo para mobile */
+  max-width: 500px;
+  min-width: 400px;
   height: auto;
 `;
 
 const StarSeedButton = styled.button`
-  background-color: #007bff; /* Similar to a common button color */
+  background-color:rgb(50, 123, 176); /* Similar to a common button color */
   color: white;
   border: none;
   padding: 12px 24px;
@@ -62,7 +78,7 @@ const StarSeedButton = styled.button`
   transition: background-color 0.3s ease, transform 0.2s ease;
 
   &:hover {
-    background-color: #0056b3;
+    background-color:rgb(30, 179, 0);
     transform: translateY(-2px);
   }
 
@@ -72,7 +88,7 @@ const StarSeedButton = styled.button`
 
   @media (max-width: 768px) {
     font-size: 1rem;
-    padding: 10px 20px;
+    padding: 20px 40px;
   }
 `;
 
@@ -92,20 +108,26 @@ const ModalBackdrop = styled.div`
   transition: opacity 0.3s ease, visibility 0.3s ease;
 `;
 
-const ModalContentWrapper = styled.div`
-  background: #1a1a2e; /* Dark background similar to other expanded content */
-  color: #e0e0e0; /* Light text for contrast */
-  padding: 2rem;
-  border-radius: 15px;
-  width: 90%;
+const ModalContent = styled.div`
+  background: rgba(26, 26, 26, 0.15); /* Dark semi-transparent background */
+  padding: 2.5rem;
+  border-radius: 70px; /* More rounded corners */
+  width: 80%;
   max-width: 900px;
-  max-height: 85vh;
-  overflow-y: auto;
+  max-height: 85vh; /* Limit height and enable scrolling */
+  overflow-y: auto;   /* Enable vertical scroll */
   position: relative;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  border: 1px solid #4a4a70;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  border: 1px solid rgba(0, 170, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
   transform: ${props => props.show ? 'translateY(0)' : 'translateY(-50px)'};
-  transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+
+  @media (max-width: 768px) {
+    width: 95%;
+    padding: 1.5rem;
+  }
 
   &::-webkit-scrollbar {
     width: 8px;
@@ -137,7 +159,39 @@ const ModalCloseButton = styled.button`
   }
 `;
 
+const ModalImage = styled.img`
+  width: 450px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  
+  &.float-left {
+    float: left;
+    margin: 0 1.5rem 1rem 0;
+  }
+
+  &.float-right {
+    float: right;
+    margin: 0 0 1rem 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    float: none;
+    display: block;
+    margin: 1.5rem auto;
+    width: 100%;
+    max-width: 1500px;
+  }
+`;
+
 const ModalTextContainer = styled.div`
+  /* Clear floats */
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
   h3 {
     color: #00aaff; /* Bright blue for main titles */
     font-size: 1.8rem;
@@ -165,47 +219,120 @@ const ModalTextContainer = styled.div`
   }
 `;
 
+const SliderWrapper = styled.div`
+  margin: 2rem 0;
+  .slick-prev:before,
+  .slick-next:before {
+    color: #00aaff;
+  }
+`;
+
+const DesktopView = styled.div`
+  display: block;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const MobileView = styled.div`
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+  }
+`;
+
+const MobileSliderImage = styled.img`
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  margin: 0 auto;
+`;
 
 const Purpose = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
+
+  const purposeImages = [paz, libertad, union];
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
   return (
     <>
       <PurposeWrapper id="purpose">
         <TitleContainer>
-          <PurposeImage src={paloma} alt="Paz" />
           <SectionTitle>Propósito</SectionTitle>
-          <PurposeImage src={compasion} alt="Compasión" />
         </TitleContainer>
-        <PurposeContent>
-          La ontocracia ciberdélica transhumanista comunista es el núcleo del Sistema de la Sociedad StarSeed (SSSS); al fusionar el poder ciudadano con el gobierno político y económico, a través de participación democrática directa con organización de tecnologías colectivas para el bien común; este es el verdadero sistema político y económico evolutivo, armonioso, próspero y abundante de la confederación intergaláctica.
-        </PurposeContent>
-        <StarSeedButton onClick={handleOpenModal}>Comunismo Ontocrático StarSeed</StarSeedButton>
+
+        <DesktopView>
+          <ContentLayout>
+            <PurposeImage src={paz} alt="Paz" />
+            <PurposeContent>
+              La ontocracia ciberdélica transhumanista comunista es el núcleo del Sistema de la Sociedad StarSeed (SSSS); al fusionar el poder ciudadano con el gobierno político y económico, a través de participación democrática directa con organización de tecnologías colectivas para el bien común; este es el verdadero sistema político y económico evolutivo, armonioso, próspero y abundante de la confederación intergaláctica.
+            </PurposeContent>
+            <PurposeImage src={libertad} alt="Libertad" />
+          </ContentLayout>
+          <BottomImageContainer>
+            <PurposeImage src={union} alt="Unión" />
+          </BottomImageContainer>
+        </DesktopView>
+
+        <MobileView>
+          <PurposeContent>
+            La ontocracia ciberdélica transhumanista comunista es el núcleo del Sistema de la Sociedad StarSeed (SSSS); al fusionar el poder ciudadano con el gobierno político y económico, a través de participación democrática directa con organización de tecnologías colectivas para el bien común; este es el verdadero sistema político y económico evolutivo, armonioso, próspero y abundante de la confederación intergaláctica.
+          </PurposeContent>
+          <SliderWrapper>
+            <Slider {...sliderSettings}>
+              {purposeImages.map((img, index) => (
+                <div key={index}>
+                  <MobileSliderImage src={img} alt={`Propósito ${index + 1}`} />
+                </div>
+              ))}
+            </Slider>
+          </SliderWrapper>
+        </MobileView>
+
+        <div style={{ textAlign: 'center' }}>
+          <StarSeedButton onClick={handleOpenModal}>Comunismo Ontocrático StarSeed</StarSeedButton>
+        </div>
       </PurposeWrapper>
 
       {isModalOpen && (
         <ModalBackdrop show={isModalOpen} onClick={handleCloseModal}>
-          <ModalContentWrapper show={isModalOpen} onClick={(e) => e.stopPropagation()}> {/* Prevents modal from closing when clicking inside content */}
+          <ModalContent show={isModalOpen} onClick={(e) => e.stopPropagation()}> {/* Prevents modal from closing when clicking inside content */}
             <ModalCloseButton onClick={handleCloseModal}>&times;</ModalCloseButton>
             <ModalTextContainer>
               <h3>Comunismo StarSeed</h3>
+              
               <p><strong>Recursos, medios y técnicas de producción bienes, productos y servicios colectivos</strong></p>
               
               <p>Imagina un mundo donde todo lo que necesitas está a tu alcance, sin costo alguno. Una sociedad en la que la abundancia reemplaza la escasez y donde la vida fluye libre de jerarquías, estructuras opresivas y desigualdad. Aquí, el poder no pertenece a unos pocos; el verdadero poder está en cada persona, en una comunidad que no depende de gobiernos tradicionales ni de élites. En este mundo, la democracia no es una ilusión, sino una fuerza viva y palpable que impulsa cada decisión. Bienvenidos a LA revolución social, un modelo de comunidad avanzada, libre y equitativa, donde la vida se experimenta en su máxima plenitud, con paz y felicidad.</p>
               
               <h4>Democracia Real: El Poder es Nuestro</h4>
+              <ModalImage src={democracia} alt="Democracia" className="float-left" />
               <p>En esta comunidad, la democracia es el motor. No existe un gobierno centralizado que dicte las normas, ni élites que controlen desde arriba. Aquí, el poder es verdaderamente nuestro, y cada miembro de la comunidad es parte activa de la toma de decisiones. Cada elección sobre la producción, la administración de recursos y el bienestar común es tomada a través de un proceso democrático donde todas las voces cuentan. No hay intermediarios, no hay burocracia que frene el cambio; esta es una democracia directa, viva, y abierta, donde la comunidad misma es el único poder.</p>
               <p>Gracias a la tecnología como dispositivos moviles, robots e IA, cada persona tiene la capacidad de influir en cada aspecto de su entorno. Plataformas seguras y transparentes permiten que las decisiones colectivas se tomen de manera justa, informada y equitativa. La tecnología y la ciencia, en lugar de servir a unos pocos, trabaja para toda la comunidad, ofreciendo análisis imparciales, organizando ideas, y facilitando que cada individuo participe sin dificultad. Aquí, cada voz tiene peso, y cada decisión es nuestra.</p>
               
               <h4>Una Producción Comunitaria para la Abundancia Colectiva</h4>
+              <ModalImage src={progreso} alt="Progreso" className="float-right" />
               <p>Y en este modelo de producción comunitaria, la abundancia es un derecho, no un privilegio. Cada persona tiene acceso a bienes y servicios sin costo alguno: desde alimentos frescos, suplementos y dispositivos de última generación, hasta tecnología avanzada como robots asistentes, impresoras 3D, vehículos autónomos y herramientas de realidad virtual. La tecnología está al servicio de todos, liberándonos de las tareas más arduas para que podamos dedicarnos a lo que de verdad importa: vivir, crear, aprender, y crecer.</p>
               <p>La agricultura, la fabricación y los servicios son gestionados por sistemas de IA y robots, produciendo de manera sostenible y ecológica. No hay explotación ni escasez. A cada miembro de la comunidad se le brinda acceso a alimentos cultivados sin dañarse el planeta, ropa personalizada, herramientas de arte y de música, y todo aquello que nutre cuerpo, mente y espíritu. Este es un sistema que honra a la naturaleza, la respeta y la integra en la vida diaria.</p>
               
-              <h4>Tecnología al Servicio del Bienestar Común</h4>
-              <p>La inteligencia artificial y los robots no sirven a una minoría, sino a todos por igual. Cada persona tiene acceso a dispositivos de comunicación, computadoras, tablets y más, sin preocuparse por el costo o la obsolescencia. Las impresoras 3D permiten fabricar en casa los artículos que necesitamos, desde herramientas hasta juguetes, adaptándose a las necesidades y deseos de cada individuo. Todo, desde el entretenimiento hasta la nutrición, es accesible para todos, sin excepciones.</p>
-              <p>La comunidad usa tecnología para democratizar el poder y evitar la formación de élites o estructuras de control. Es una sociedad donde la tecnología nos libera de las tareas rutinarias, permitiéndonos explorar nuestra creatividad, nuestras pasiones y nuestros sueños.</p>
+              <h4>Transhumanismo y Singularidad Tecnológica</h4>
+              <ModalImage src={transhumanismo} alt="Transhumanismo" className="float-left" />
+              <p>Y en el corazón de esta comunidad late la promesa del transhumanismo: la superación de nuestras limitaciones biológicas a través de la ciencia y la tecnología. Aquí, la fusión con la IA no es una fantasía, sino una realidad que nos permite expandir nuestra conciencia, mejorar nuestras capacidades y alcanzar un estado de plenitud que antes era inimaginable. La singularidad tecnológica no es un evento que temer, sino una oportunidad para evolucionar hacia una nueva forma de ser, más conectada, más consciente y más libre.</p>
+              <p>Esta es una comunidad donde la vida es abundante, la democracia es real y el futuro es nuestro para crearlo. Un lugar donde cada día es una oportunidad para explorar, para crecer y para vivir en armonía con nosotros mismos, con los demás y con el universo.</p>
               
               <h4>La Revolución Social, el transhumanismo</h4>
               <p>Este es el llamado a crear una utopía, un paraíso tecnológico simbiótico evolutivo con paz y prosperidad.</p>
@@ -276,7 +403,7 @@ const Purpose = () => {
               </ul>
               <p>Esta visión no solo proporciona los recursos básicos, sino que fomenta una vida equilibrada y creativa, basada en el respeto por el medioambiente y el bienestar colectivo. La tecnología y el voluntariado sostienen una sociedad donde cada miembro puede vivir en paz, con acceso a todo lo que necesita para una vida plena con felicidad y prosperidad.</p>
             </ModalTextContainer>
-          </ModalContentWrapper>
+          </ModalContent>
         </ModalBackdrop>
       )}
     </>

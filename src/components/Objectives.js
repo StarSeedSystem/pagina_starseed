@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SectionWrapper, SectionTitle } from './ContentSection';
-import guiaImg from '../assets/imagenes/objetivos/guia_para_paz.png';
-import comunidadImg from '../assets/imagenes/objetivos/comunidad.png';
-import constitucionImg from '../assets/imagenes/objetivos/constitucion.png';
-import viviendasImg from '../assets/imagenes/objetivos/viviendas.png';
+import guiaImg from '../assets/nuevas_imagenes/4 objetivos/fundamentos universales.png';
+import comunidadImg from '../assets/nuevas_imagenes/4 objetivos/comunidades.png';
+import constitucionImg from '../assets/nuevas_imagenes/4 objetivos/constitucion.png';
+import viviendasImg from '../assets/nuevas_imagenes/4 objetivos/viviendas.png';
+import redImg from '../assets/nuevas_imagenes/4 objetivos/red.png';
 
 const ObjectivesWrapper = styled(SectionWrapper)`
   padding-top: 1rem;
@@ -40,16 +41,16 @@ const ObjectiveItem = styled.div`
 `;
 
 const ObjectiveImage = styled.img`
-  width: 200px;
+  width: 800px; /* Aumentado */
   height: auto;
   margin-bottom: 1rem;
 
   @media (max-width: 768px) {
-    width: 150px;
+    width: 420px;
   }
 
   @media (max-width: 480px) {
-    width: 120px;
+    width: 600px;
   }
 `;
 
@@ -122,6 +123,7 @@ const Objectives = () => {
       </ObjectiveItem>
 
       <ObjectiveItem>
+        <ObjectiveImage src={redImg} alt="Red StarSeed" />
         <ObjectiveContent>
           <ObjectiveTitle>Desarrollo de la “Red StarSeed” (RSS)</ObjectiveTitle>
           <ObjectiveDescription>

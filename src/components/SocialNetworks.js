@@ -1,38 +1,21 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SectionWrapper, SectionTitle, ContentGrid } from './ContentSection';
 import styled from 'styled-components';
-import politicaBoton from '../assets/imagenes/red_social/politica/boton.png';
-import educacionBoton from '../assets/imagenes/red_social/educacion/boton.png';
-import culturaBoton from '../assets/imagenes/red_social/cultura/boton.png';
-import politicaInterno from '../assets/imagenes/red_social/politica/interno.png';
-import educacionInterno from '../assets/imagenes/red_social/educacion/interno.png';
-import culturaInterno from '../assets/imagenes/red_social/cultura/interno.png';
 
-const MainDescription = styled.p`
-  text-align: center;
-  max-width: 900px;
-  margin: 1rem auto;
-  font-size: 1.8rem;
-  line-height: 1.6;
+// Import images
+import politicaBoton from '../assets/nuevas_imagenes/5 Red social/1 politica/boton.png';
+import educacionBoton from '../assets/nuevas_imagenes/5 Red social/2 educacion/boton.png';
+import culturaBoton from '../assets/nuevas_imagenes/5 Red social/3 cultura/boton.png';
+import mainButtonImg from '../assets/nuevas_imagenes/5 Red social/boton principal.png';
+import politicaInterno1 from '../assets/nuevas_imagenes/5 Red social/1 politica/interno.png';
+import educacionInterno1 from '../assets/nuevas_imagenes/5 Red social/2 educacion/interno.png';
+import culturaInterno1 from '../assets/nuevas_imagenes/5 Red social/3 cultura/interno.png';
 
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 1rem;
-`;
-
-const ButtonTitle = styled.span`
-  margin-top: 0.5rem;
-  color: ${props => props.theme.colors.lightText};
-  font-size: 1.2rem;
-  text-align: center;
+const SocialNetworksWrapper = styled(SectionWrapper)`
+  position: relative;
+  overflow: hidden;
 `;
 
 const NetworkButton = styled(motion.button)`
@@ -40,233 +23,171 @@ const NetworkButton = styled(motion.button)`
   border: none;
   cursor: pointer;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
   
   img {
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
+    display: block;
+    max-width: 100%;
+    height: auto;
     transition: transform 0.3s ease;
-    
-    &:hover {
-      transform: scale(1.05);
-    }
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+
+  ${({ isMain }) => isMain ? `
+    width: 60vw;
+    max-width: 450px;
+    margin: 0 auto 2rem;
 
     @media (max-width: 768px) {
-      width: 120px;
-      height: 120px;
+      width: 80vw;
+    }
+  ` : `
+    width: 250px;
+    height: 250px;
+
+    @media (max-width: 768px) {
+      width: 200px;
+      height: 200px;
     }
 
     @media (max-width: 480px) {
-      width: 100px;
-      height: 100px;
+      width: 150px;
+      height: 150px;
     }
-  }
+  `}
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+`;
+
+const ButtonTitle = styled.h3`
+  margin-top: 1rem;
+  color: ${props => props.theme.colors.lightText};
+  font-size: 1.2rem;
+`;
+
+const MainDescription = styled.p`
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  color: ${props => props.theme.colors.lightText};
+  font-size: 1.1rem;
+  line-height: 1.6;
 `;
 
 const ExpandedContent = styled(motion.div)`
   position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.9);
-  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
-  overflow-y: auto; /* Enable scrolling */
-  padding: 0;
-  
-  @media (max-width: 768px) {
-    align-items: flex-start; /* Align to top on mobile */
-  }
-  
-  @media (min-width: 769px) {
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-  }
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 `;
 
 const CloseButton = styled(motion.button)`
-  position: fixed;
-  top: 2rem;
-  right: 3rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: #e0e0e0;
+  font-size: 2rem;
+  font-weight: bold;
   cursor: pointer;
-  z-index: 1001;
-  color: white;
-  font-size: 1.5rem;
+  transition: color 0.2s ease, transform 0.2s ease;
 
-  @media (max-width: 768px) {
-    top: 1rem;
-    right: 1rem;
+  &:hover {
+    color: #007bff;
+    transform: scale(1.1);
   }
 `;
 
-const ExpandedCardContent = styled.div`
-  position: relative;
-  width: 95%;
-  max-width: 1200px;
-  display: flex;
-  gap: 2rem;
-  padding: 2rem;
-  background: rgba(20, 20, 20, 0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  margin: auto; /* Center horizontally */
-  
-  @media (min-width: 769px) {
-    height: 90vh; /* Only restrict height on desktop */
-  }
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    width: 100%;
-    border-radius: 0;
-    padding: 1rem;
-    padding-top: 3rem;
-    min-height: 100%; /* Fill screen height */
-    height: auto; /* Allow to expand with content */
-    margin: 0; /* No margin on mobile */
-  }
-
-  h3 { 
-    font-size: 2.2rem; 
-    margin-bottom: 1.5rem; 
-    color: ${props => props.theme.colors.primary};
-
-    @media (max-width: 768px) {
-      font-size: 1.8rem;
-    }
-  }
-  h4 { 
-    font-size: 1.8rem; 
-    margin-top: 2rem; 
-    margin-bottom: 0.8rem;
-
-    @media (max-width: 768px) {
-      font-size: 1.4rem;
-    }
-  }
-  p, ul { 
-    margin-bottom: 1rem;
-    font-size: 1.8rem;
-
-    @media (max-width: 768px) {
-      font-size: 1.4rem;
-    }
-  }
-  li { 
-    margin-bottom: 0.5rem;
-    font-size: 1.8rem;
-
-    @media (max-width: 768px) {
-      font-size: 1.4rem;
-    }
-  }
-`;
-
-const TextContainer = styled.div`
-  flex: 2;
-  height: 100%;
+const ExpandedCardContent = styled(motion.div)`
+  background: rgba(26, 26, 26, 0.15);
+  padding: 2.5rem;
+  border-radius: 70px;
+  width: 80%;
+  max-width: 900px;
+  max-height: 85vh;
   overflow-y: auto;
-  padding-right: 1.5rem;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  border: 1px solid rgba(0, 170, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+
+  @media (max-width: 768px) {
+    width: 95%;
+    padding: 1.5rem;
+  }
 
   &::-webkit-scrollbar { width: 8px; }
-  &::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 4px; }
-  &::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.4); border-radius: 4px; }
-  &::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.6); }
-
-  @media (max-width: 768px) {
-    order: 2;
-    padding-right: 0;
-    flex: 1 1 auto;
-    max-height: none; /* Don't restrict height */
-    overflow-y: visible; /* Content flows naturally */
-  }
+  &::-webkit-scrollbar-thumb { background-color: #007bff; border-radius: 4px; }
+  &::-webkit-scrollbar-track { background-color: #2c2c54; }
 `;
 
-const ImageContainer = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+const ModalTextContainer = styled.div`
+  &:after { content: ""; display: table; clear: both; }
 
-  @media (max-width: 768px) {
-    order: 1;
-    flex: 0 0 auto; /* Don't grow, don't shrink */
-    max-height: 30vh; /* Reduce max height of image container */
-    padding-top: 0.5rem; /* Add a bit of space at the top */
-  }
+  h3 { color: #00aaff; font-size: 1.8rem; margin-bottom: 1rem; text-align: center; }
+  h4 { color: #50c878; font-size: 1.4rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+  p, li { font-size: 1.1rem; line-height: 1.7; margin-bottom: 1rem; text-align: justify; }
+  ul { list-style-position: inside; padding-left: 0; }
+  strong { color: #ffeb3b; }
 `;
 
-const ExpandedImage = styled.img`
-  max-width: 100%;
+const ModalImage = styled.img`
+  width: 450px;
   height: auto;
-  max-height: 80%;
-  border-radius: 15px;
-  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  
+  &.float-left { float: left; margin: 0 1.5rem 1rem 0; }
+  &.float-right { float: right; margin: 0 0 1rem 1.5rem; }
+
+  @media (max-width: 768px) {
+    float: none;
+    display: block;
+    margin: 1.5rem auto;
+    width: 100%;
+    max-width: 450px;
+  }
 `;
 
-const SocialNetworks = () => {
+const SocialNetworks = ({ id }) => {
+  const [isContentVisible, setIsContentVisible] = useState(false);
   const [activeNetwork, setActiveNetwork] = useState(null);
-  const textRef = useRef(null);
   const sectionRef = useRef(null);
-
-  useEffect(() => {
-    if (activeNetwork !== null) {
-      // Only prevent body scroll on desktop, mobile needs to scroll the modal content
-      if (window.innerWidth > 768) {
-        document.body.style.overflow = 'hidden';
-      }
-      
-      const timer = setTimeout(() => {
-        if (textRef.current) {
-          textRef.current.scrollTop = 0;
-        }
-      }, 0);
-
-      return () => {
-        document.body.style.overflow = 'unset';
-        clearTimeout(timer);
-      };
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-  }, [activeNetwork]);
-
-  const handleNetworkClick = (index) => {
-    // Primero, nos aseguramos de que la sección esté a la vista.
-    sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    // Luego, abrimos el modal.
-    setActiveNetwork(index);
-  };
 
   const networks = [
     {
       name: "Política",
       buttonImg: politicaBoton,
-      internalImg: politicaInterno,
+      images: [politicaInterno1],
       description: (
-        <>
+        <ModalTextContainer>
           <h3>Política: La Red democrática</h3>
-          <MainDescription data-component-name="SocialNetworks">La Red democrática es una plataforma dedicada a la votación y publicación libre de ideas. Sus principales características incluyen:</MainDescription>
+          <ModalImage src={politicaInterno1} alt="Democracia" className="float-left" />
+          <p>La Red democrática es una plataforma dedicada a la votación y publicación libre de ideas. Sus principales características incluyen:</p>
           <h4>1. Publicación de Propuestas y Federaciones</h4>
           <ul>
-            <li><strong>Entidades Federativas Dinámicas:</strong> Las propuestas se publican en entidades federativas oficiales, definidas democráticamente por la población y segmentadas por zonas o grupos de participantes, no por niveles de poder preestablecidos.</li>
+            <li><strong>Entidades Federativas Dinámicas:</strong> Las propuestas se publican en entidades federativas oficiales, definidas democráticamente por la población y segmentadas por zonas o grupos de participantes.</li>
             <li><strong>Estatuto Oficial de Propuestas:</strong> Las propuestas alcanzan el estatus de oficiales cuando la mayoría de los afectados está de acuerdo.</li>
           </ul>
           <h4>2. Votación y Comentarios</h4>
           <ul>
-            <li><strong>Participación Inclusiva:</strong> Los usuarios pueden votar a favor o en contra de publicaciones o comentarios, incluyendo el establecimiento de fechas límite.</li>
+            <li><strong>Participación Inclusiva:</strong> Los usuarios pueden votar a favor o en contra de publicaciones o comentarios.</li>
             <li><strong>Notificaciones Efectivas:</strong> El sistema notifica a las entidades federativas e individuos afectados por las propuestas.</li>
           </ul>
           <h4>3. Opinión de Expertos</h4>
@@ -274,29 +195,17 @@ const SocialNetworks = () => {
             <li><strong>Colaboración Interdisciplinaria:</strong> Se busca activamente la opinión de expertos.</li>
             <li><strong>Reconocimiento Profesional:</strong> Los expertos pueden compartir insignias o certificados.</li>
           </ul>
-          <h4>4. Seguimiento y Copias</h4>
-          <ul>
-            <li><strong>Replicación de Votos:</strong> Los usuarios pueden seguir a partidos, grupos o individuos para replicar sus votos.</li>
-            <li><strong>Monitoreo de Propuestas:</strong> También pueden seguir a entidades federativas.</li>
-            <li><strong>Gestión de Conflictos:</strong> El sistema cancela y notifica conflictos en votos copiados.</li>
-          </ul>
-          <h4>5. Transparencia y Seguridad</h4>
-          <ul>
-            <li><strong>Publicación de Votos:</strong> Todos los votos son públicos.</li>
-            <li><strong>Identidad Verificada:</strong> La verificación de identidad es opcional pero necesaria para votar en propuestas oficiales.</li>
-            <li><strong>Privacidad y Anonimato:</strong> Los usuarios pueden mantener el anonimato si lo desean.</li>
-          </ul>
-          <p>Esta red utiliza tecnología avanzada, inteligencia artificial y una comunidad comprometida de expertos y ciudadanos para construir una sociedad más justa, sostenible y pacífica.</p>
-        </>
+        </ModalTextContainer>
       ),
     },
     {
       name: "Educación",
       buttonImg: educacionBoton,
-      internalImg: educacionInterno,
+      images: [educacionInterno1],
       description: (
-        <>
+        <ModalTextContainer>
           <h3>Educación: Red de Conocimiento</h3>
+          <ModalImage src={educacionInterno1} alt="Educación" className="float-right" />
           <p>Plataforma educativa que integra el conocimiento en un sistema dinámico y accesible. Sus características clave son:</p>
           <h4>1. Integración de Contenidos</h4>
           <p>Conexión de información de diversas fuentes en un formato unificado y fácil de navegar.</p>
@@ -304,92 +213,107 @@ const SocialNetworks = () => {
           <p>Algoritmos de IA que adaptan los planes de estudio a las necesidades individuales.</p>
           <h4>3. Gamificación y Realidad Extendida</h4>
           <p>Experiencias de aprendizaje inmersivas a través de juegos, AR y VR.</p>
-          <h4>4. Contribución y Validación</h4>
-          <p>Los usuarios pueden añadir y validar contenido, fomentando una comunidad de aprendizaje colaborativa.</p>
-          <h4>5. Foros y Debates</h4>
-          <p>Espacios para la discusión y el intercambio de ideas, con moderación para asegurar un ambiente constructivo.</p>
-          <h4>6. Proyectos y Desafíos</h4>
-          <p>Aplicación práctica del conocimiento a través de proyectos y desafíos del mundo real.</p>
-        </>
+        </ModalTextContainer>
       ),
     },
     {
       name: "Cultura",
       buttonImg: culturaBoton,
-      internalImg: culturaInterno,
+      images: [culturaInterno1],
       description: (
-        <>
+        <ModalTextContainer>
           <h3>Cultura: Red Sociocultural</h3>
+          <ModalImage src={culturaInterno1} alt="Cultura" className="float-left" />
           <p>Plataforma dinámica que enriquece la vida comunitaria y cultural. Sus características son:</p>
           <h4>1. Opciones de Privacidad y Permanencia</h4>
           <p>Control total del usuario sobre la privacidad y duración de su contenido.</p>
           <h4>2. Perfiles Diversos y Grupos</h4>
           <p>Creación de múltiples perfiles y unión a comunidades con intereses específicos.</p>
-          <h4>3. Interacción, Formatos y Comentarios</h4>
+          <h4>3. Interacción y Formatos</h4>
           <p>Experiencias en 2D, Realidad Aumentada (AR) y Realidad Virtual (VR).</p>
-          <h4>4. Mapas y Actividades</h4>
-          <p>Exploración y organización de eventos y actividades locales y globales.</p>
-          <h4>5. Democracia Geográfica</h4>
-          <p>Participación en la definición de espacios públicos y eventos.</p>
-          <h4>6. Recomendaciones Personalizadas</h4>
-          <p>IA que sugiere interacciones, amistades y contenido basado en afinidades.</p>
-        </>
+        </ModalTextContainer>
       ),
     },
   ];
 
-  return (
-    <SectionWrapper id="social-networks" ref={sectionRef}>
-      <SectionTitle>La Red StarSeed: Transhumanismo</SectionTitle>
-      <p style={{ textAlign: 'center', maxWidth: '900px', margin: '1rem auto', fontSize: '1.2rem', lineHeight: '1.6' }}>
-        La Red StarSeed es una plataforma social integral diseñada para fomentar la participación activa, transparente y democrática en todos los aspectos de la sociedad. Dividida en tres secciones principales—Política, Educación y Cultura—esta red utiliza tecnología avanzada, inteligencia artificial y una comunidad comprometida de expertos y ciudadanos para construir una sociedad más justa, equitativa, sostenible y pacífica.
-      </p>
-      <ContentGrid>
-        {networks.map((network, index) => (
-          <ButtonContainer key={index}>
-            <NetworkButton
-              onClick={() => handleNetworkClick(index)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label={network.name}
-            >
-              <img 
-                src={network.buttonImg} 
-                alt={network.name} 
-                title={network.name}
-              />
-            </NetworkButton>
-            <ButtonTitle>{network.name}</ButtonTitle>
-          </ButtonContainer>
-        ))}
-      </ContentGrid>
-      <AnimatePresence>
-        {activeNetwork !== null && (
-          // La capa de fondo que ocupa toda la pantalla
-          <ExpandedContent
-            initial={{ y: "-100vh", opacity: 0 }} /* Animación desde arriba */
-            animate={{ y: "0vh", opacity: 1 }}
-            exit={{ y: "-100vh", opacity: 0 }}
-            transition={{ type: "spring", stiffness: 260, damping: 30 }} /* Transición suave */
-          >
-            {/* Botón de cierre anclado a la pantalla, fuera de la tarjeta de contenido */}
-            <CloseButton onClick={() => setActiveNetwork(null)} whileHover={{ scale: 1.1, rotate: 90 }} whileTap={{ scale: 0.9 }}>
-              &times;
-            </CloseButton>
+  const handleNetworkClick = (index) => {
+    setActiveNetwork(index);
+  };
 
-            {/* La tarjeta que contiene el texto y la imagen */}
-            <ExpandedCardContent>
-              <TextContainer ref={textRef}>
-                {networks[activeNetwork].description}
-              </TextContainer>
-              <ImageContainer>
-                <ExpandedImage src={networks[activeNetwork].internalImg} alt={networks[activeNetwork].name} />
-              </ImageContainer>
-            </ExpandedCardContent>
-          </ExpandedContent>
+  const closeModal = () => {
+    setActiveNetwork(null);
+  };
+
+  return (
+    <SocialNetworksWrapper id={id} ref={sectionRef}>
+      <SectionTitle>Red StarSeed</SectionTitle>
+      <AnimatePresence>
+        {!isContentVisible && (
+          <motion.div
+            initial={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.5 }}
+          >
+            <NetworkButton onClick={() => setIsContentVisible(true)} isMain>
+              <img src={mainButtonImg} alt="Entrar a Red StarSeed" />
+            </NetworkButton>
+          </motion.div>
         )}
       </AnimatePresence>
-    </SectionWrapper>
+
+      <AnimatePresence>
+        {isContentVisible && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+          >
+            <MainDescription>
+              La Red StarSeed es un ecosistema digital descentralizado que integra tres redes interconectadas: Política, Educación y Cultura. Juntas, estas redes forman una base sólida para una nueva sociedad, donde la colaboración, la transparencia y el empoderamiento individual son los pilares fundamentales.
+            </MainDescription>
+            <ContentGrid>
+              {networks.map((network, index) => (
+                <ButtonContainer key={index}>
+                  <NetworkButton
+                    onClick={() => handleNetworkClick(index)}
+                  >
+                    <img src={network.buttonImg} alt={network.name} />
+                  </NetworkButton>
+                  <ButtonTitle>{network.name}</ButtonTitle>
+                </ButtonContainer>
+              ))}
+            </ContentGrid>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      
+            {createPortal(
+        <AnimatePresence>
+          {activeNetwork !== null && (
+            <ExpandedContent
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={closeModal}
+            >
+              <ExpandedCardContent
+                initial={{ y: -50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -50, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <CloseButton onClick={closeModal}>&times;</CloseButton>
+                {networks[activeNetwork].description}
+              </ExpandedCardContent>
+            </ExpandedContent>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
+    </SocialNetworksWrapper>
   );
 };
 

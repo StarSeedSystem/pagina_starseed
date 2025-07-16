@@ -1,10 +1,10 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import activistas from '/Users/alex/pagina_starseed/src/assets/imagenes/convocatoria/activistas.png';
-import artistas from '/Users/alex/pagina_starseed/src/assets/imagenes/convocatoria/artistas.png';
-import diseñadores from '/Users/alex/pagina_starseed/src/assets/imagenes/convocatoria/diseñadores.png';
-import donadores from '/Users/alex/pagina_starseed/src/assets/imagenes/convocatoria/donadores.png';
-import programadores from '/Users/alex/pagina_starseed/src/assets/imagenes/convocatoria/programadores.png';
+import activistas from '../assets/nuevas_imagenes/8 convocatoria/actoivistas.png';
+import artistas from '../assets/nuevas_imagenes/8 convocatoria/artistas.png';
+import diseñadores from '../assets/nuevas_imagenes/8 convocatoria/diseñadores.png';
+import donadores from '../assets/nuevas_imagenes/8 convocatoria/donadores.png';
+import programadores from '../assets/nuevas_imagenes/8 convocatoria/programadores.png';
 
 const colorChange = keyframes`
   0% { background-position: 0% 50%; }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SectionWrapper, SectionTitle } from './ContentSection';
@@ -9,7 +9,6 @@ import culturaButtonImg from '../assets/nuevas_imagenes/5 Red social/3 cultura/b
 import politicaContentImg from '../assets/nuevas_imagenes/5 Red social/1 politica/interno.png';
 import educacionContentImg from '../assets/nuevas_imagenes/5 Red social/2 educacion/interno.png';
 import culturaContentImg from '../assets/nuevas_imagenes/5 Red social/3 cultura/interno.png';
-import mainButtonImg from '../assets/nuevas_imagenes/3 misiones/boton principal de misiones.png';
 
 const MissionsWrapper = styled(SectionWrapper)`
   display: flex;
@@ -119,7 +118,7 @@ const MissionButton = styled(motion.button)`
   }
 `;
 
-const MissionContent = styled.div`
+const MissionContent = styled(motion.div)`
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -129,10 +128,9 @@ const MissionContent = styled.div`
   font-size: 1.9rem;
   line-height: 1.6;
   overflow: hidden;
-  max-height: ${props => props.isActive ? '1000px' : '0'};
-  opacity: ${props => props.isActive ? '1' : '0'};
-  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  padding: ${props => props.isActive ? '1rem' : '0 1rem'};
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -174,104 +172,80 @@ const CloseButton = styled.button`
 `;
 
 const Missions = ({ id }) => {
-  const [isContentVisible, setIsContentVisible] = useState(false);
   const [activeMission, setActiveMission] = useState(null);
+  const contentRef = useRef(null);
 
   const missionData = {
     politica: {
+      title: 'Sistema Político',
       buttonImg: politicaButtonImg,
       contentImg: politicaContentImg,
       text: `
         La soberanía reside en el individuo y se ejerce a través de una democracia directa y transparente, utilizando tecnología blockchain para garantizar la integridad de las decisiones colectivas. 
         Cada ciudadano tiene el poder de proponer, debatir y votar sobre leyes y políticas, eliminando la necesidad de intermediarios y asegurando que cada voz sea escuchada y contada.
-      `,
+      `
     },
     educacion: {
+      title: 'Sistema Educativo',
       buttonImg: educacionButtonImg,
       contentImg: educacionContentImg,
       text: `
-        Un sistema educativo personalizado y accesible para todos, que utiliza inteligencia artificial para adaptar el aprendizaje a las necesidades y talentos de cada individuo. 
-        Fomentamos el pensamiento crítico, la creatividad y la colaboración, preparando a los ciudadanos para los desafíos del futuro y promoviendo un aprendizaje continuo a lo largo de la vida.
-      `,
+        Un sistema educativo descentralizado y personalizado, donde el aprendizaje es un viaje de autodescubrimiento. 
+        Se fomenta la curiosidad y la creatividad, y se utilizan herramientas de IA para adaptar el contenido a las necesidades individuales, creando rutas de aprendizaje únicas.
+      `
     },
     cultura: {
+      title: 'Sistema Cultural',
       buttonImg: culturaButtonImg,
       contentImg: culturaContentImg,
       text: `
-        Una cultura basada en la empatía, la colaboración y el respeto por la diversidad. 
-        Promovemos la creación y el acceso libre al arte y al conocimiento, utilizando tecnologías como la realidad virtual y aumentada para ofrecer experiencias inmersivas y enriquecedoras que conecten a las personas y celebren nuestra humanidad compartida.
-      `,
-    },
+        Una cultura de colaboración, empatía y respeto, donde se celebran la diversidad y la creatividad. 
+        Se promueven las artes, la ciencia y la filosofía como pilares del desarrollo humano, y se crean espacios para el diálogo y la co-creación.
+      `
+    }
   };
 
   const handleMissionClick = (mission) => {
-    setActiveMission(activeMission === mission ? null : mission);
+    setActiveMission(prev => (prev === mission ? null : mission));
   };
+
+  useEffect(() => {
+    if (activeMission && contentRef.current) {
+      const timer = setTimeout(() => {
+        contentRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 300); // Wait for animation
+      return () => clearTimeout(timer);
+    }
+  }, [activeMission]);
 
   return (
     <MissionsWrapper id={id}>
       <SectionTitle>Misiones StarSeed</SectionTitle>
-      <AnimatePresence>
-        {!isContentVisible && (
-          <motion.div
-            initial={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.5 }}
-          >
-            <MissionButton onClick={() => setIsContentVisible(true)} isMain>
-              <img src={mainButtonImg} alt="Entrar a Misiones" />
+      <MissionButtons>
+        {Object.keys(missionData).map(missionName => (
+          <ButtonContainer key={missionName}>
+            <MissionButton onClick={() => handleMissionClick(missionName)}>
+              <img src={missionData[missionName].buttonImg} alt={missionData[missionName].title} title={missionData[missionName].title} />
             </MissionButton>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            <ButtonTitle>{missionData[missionName].title}</ButtonTitle>
+          </ButtonContainer>
+        ))}
+      </MissionButtons>
 
       <AnimatePresence>
-        {isContentVisible && (
+        {activeMission && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+            ref={contentRef}
+            key="mission-content"
+            initial={{ opacity: 0, height: 0, marginTop: 0 }}
+            animate={{ opacity: 1, height: 'auto', marginTop: '2rem' }}
+            exit={{ opacity: 0, height: 0, marginTop: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            style={{ width: '100%', overflow: 'hidden' }}
           >
-            <MissionButtons>
-              {Object.entries({
-                politica: 'Sistema Político',
-                educacion: 'Educación',
-                cultura: 'Cultura'
-              }).map(([key, title]) => (
-                <ButtonContainer key={key}>
-                  <MissionButton
-                    onClick={() => handleMissionClick(key)}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    aria-label={title}
-                  >
-                    <img 
-                      src={missionData[key].buttonImg} 
-                      alt={title} 
-                      title={title}
-                    />
-                  </MissionButton>
-                  <ButtonTitle>{title}</ButtonTitle>
-                </ButtonContainer>
-              ))}
-            </MissionButtons>
-            
-            <MissionContent isActive={activeMission === 'politica'}>
-              <MissionText>{missionData.politica.text}</MissionText>
-              <MissionImage src={missionData.politica.contentImg} alt="Contenido de Política" />
-              <CloseButton onClick={() => setActiveMission(null)}>&times;</CloseButton>
-            </MissionContent>
-            
-            <MissionContent isActive={activeMission === 'educacion'}>
-              <MissionText>{missionData.educacion.text}</MissionText>
-              <MissionImage src={missionData.educacion.contentImg} alt="Contenido de Educación" />
-              <CloseButton onClick={() => setActiveMission(null)}>&times;</CloseButton>
-            </MissionContent>
-            
-            <MissionContent isActive={activeMission === 'cultura'}>
-              <MissionText>{missionData.cultura.text}</MissionText>
-              <MissionImage src={missionData.cultura.contentImg} alt="Contenido de Cultura" />
+            <MissionContent>
+              <MissionText>{missionData[activeMission].text}</MissionText>
+              <MissionImage src={missionData[activeMission].contentImg} alt={`Contenido de ${activeMission}`} />
               <CloseButton onClick={() => setActiveMission(null)}>&times;</CloseButton>
             </MissionContent>
           </motion.div>

@@ -12,8 +12,18 @@ import progreso from '../assets/nuevas_imagenes/2 proposito/comunismo ontocratic
 import transhumanismo from '../assets/nuevas_imagenes/2 proposito/comunismo ontocratico (interno de boton)/transhumanismo.png';
 
 const PurposeWrapper = styled(SectionWrapper)`
-  padding: 1rem 1.5rem;
+  padding: 2rem 1rem;
   position: relative;
+  max-width: 100%;
+  overflow-x: hidden;
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem 0.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem 0.5rem;
+  }
 `;
 
 const TitleContainer = styled.div`
@@ -26,10 +36,21 @@ const ContentLayout = styled.div`
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (max-width: 1024px) {
+    gap: 1.5rem;
+    margin: 1.5rem auto;
+  }
 
   @media (max-width: 768px) {
     flex-direction: column;
+    gap: 1rem;
+    margin: 1rem auto;
   }
 `;
 
@@ -39,27 +60,53 @@ const BottomImageContainer = styled.div`
 `;
 
 const PurposeContent = styled.p`
-  font-size: 1.8rem;
-  max-width: 800px;
-  line-height: 1.6;
-  text-align: center;
-  margin: 0 auto; /* Center the paragraph block */
+  font-size: 1.2rem;
+  max-width: 700px;
+  line-height: 1.7;
+  text-align: justify;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+  font-weight: 400;
+
+  @media (max-width: 1024px) {
+    font-size: 1.15rem;
+    max-width: 650px;
+    padding: 0 1.5rem;
+  }
 
   @media (max-width: 768px) {
-    font-size: 1.6rem;
+    font-size: 1.1rem;
+    max-width: 100%;
     padding: 0 1rem;
+    line-height: 1.6;
   }
 
   @media (max-width: 480px) {
-    font-size: 1.4rem;
+    font-size: 1rem;
+    padding: 0 0.75rem;
+    line-height: 1.5;
   }
 `;
 
 const PurposeImage = styled.img`
-  width: 15vw;
-  max-width: 500px;
-  min-width: 400px;
+  width: 300px;
+  max-width: 90vw;
   height: auto;
+  object-fit: contain;
+  
+  @media (max-width: 1024px) {
+    width: 250px;
+  }
+  
+  @media (max-width: 768px) {
+    width: 200px;
+    max-width: 80vw;
+  }
+  
+  @media (max-width: 480px) {
+    width: 150px;
+    max-width: 70vw;
+  }
 `;
 
 const StarSeedButton = styled.button`

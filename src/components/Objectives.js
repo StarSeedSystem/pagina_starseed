@@ -8,7 +8,17 @@ import viviendasImg from '../assets/nuevas_imagenes/4 objetivos/viviendas.png';
 import redImg from '../assets/nuevas_imagenes/4 objetivos/red.png';
 
 const ObjectivesWrapper = styled(SectionWrapper)`
-  padding-top: 1rem;
+  padding: 2rem 1rem;
+  max-width: 100%;
+  overflow-x: hidden;
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem 0.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem 0.5rem;
+  }
 `;
 
 const StyledSectionTitle = styled(SectionTitle)`
@@ -20,37 +30,68 @@ const ObjectiveItem = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 2rem;
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
   border-radius: 150px;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.4);
   transition: box-shadow 1s ease;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  box-sizing: border-box;
 
   &:hover {
     box-shadow: 0 0 150px rgba(255, 255, 255, 0.5);
   }
 
+  @media (max-width: 1024px) {
+    max-width: 900px;
+    padding: 1.75rem 1.25rem;
+    border-radius: 120px;
+  }
+
   @media (max-width: 768px) {
-    padding: 1rem;
+    max-width: 100%;
+    padding: 1.5rem 1rem;
     border-radius: 100px;
+    margin-bottom: 1.5rem;
   }
 
   @media (max-width: 480px) {
+    padding: 1rem 0.75rem;
     border-radius: 50px;
+    margin-bottom: 1rem;
   }
 `;
 
 const ObjectiveImage = styled.img`
-  width: 800px; /* Aumentado */
+  width: 100%;
+  max-width: 600px;
   height: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  object-fit: contain;
+  border-radius: 20px;
+
+  @media (max-width: 1024px) {
+    max-width: 500px;
+    margin-bottom: 1.25rem;
+  }
 
   @media (max-width: 768px) {
-    width: 420px;
+    max-width: 400px;
+    margin-bottom: 1rem;
+    border-radius: 15px;
   }
 
   @media (max-width: 480px) {
-    width: 600px;
+    max-width: 300px;
+    margin-bottom: 0.75rem;
+    border-radius: 10px;
+  }
+
+  @media (max-width: 360px) {
+    max-width: 250px;
   }
 `;
 
@@ -59,27 +100,47 @@ const ObjectiveContent = styled.div`
 `;
 
 const ObjectiveTitle = styled.h3`
-  font-size: 2.3rem;
-  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  color: ${props => props.theme.colors.primary};
+
+  @media (max-width: 1024px) {
+    font-size: 1.8rem;
+  }
 
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
   }
 
   @media (max-width: 480px) {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
   }
 `;
 
 const ObjectiveDescription = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: justify;
+  max-width: 700px;
+  margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    font-size: 1.05rem;
+    max-width: 600px;
+  }
 
   @media (max-width: 768px) {
-    font-size: 1.4rem;
+    font-size: 1rem;
+    max-width: 100%;
+    line-height: 1.5;
   }
 
   @media (max-width: 480px) {
-    font-size: 1.3rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
   }
 `;
 

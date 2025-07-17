@@ -93,6 +93,10 @@ const ExpandedContent = styled(motion.div)`
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 `;
 
 const CloseButton = styled(motion.button)`
@@ -106,10 +110,35 @@ const CloseButton = styled(motion.button)`
   font-weight: bold;
   cursor: pointer;
   transition: color 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
 
   &:hover {
     color: #007bff;
     transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    width: 35px;
+    height: 35px;
+  }
+
+  @media (max-width: 480px) {
+    top: 8px;
+    right: 8px;
+    font-size: 1.25rem;
+    width: 30px;
+    height: 30px;
   }
 `;
 
@@ -117,19 +146,43 @@ const ExpandedCardContent = styled(motion.div)`
   background: rgba(26, 26, 26, 0.15);
   padding: 2.5rem;
   border-radius: 70px;
-  width: 80%;
+  width: 90%;
   max-width: 900px;
-  max-height: 85vh;
+  max-height: 90vh;
   overflow-y: auto;
   position: relative;
   box-shadow: 0 5px 20px rgba(0,0,0,0.4);
   border: 1px solid rgba(0, 170, 255, 0.5);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  -webkit-backdrop-filter: blur(10px);
+  margin: auto;
+  
+  @media (max-width: 1024px) {
+    width: 95%;
+    max-width: 800px;
+    padding: 2rem;
+    border-radius: 50px;
+  }
 
   @media (max-width: 768px) {
-    width: 95%;
+    width: 98%;
+    max-width: 100%;
     padding: 1.5rem;
+    border-radius: 40px;
+    max-height: 95vh;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 20px;
+    max-height: 98vh;
+    margin: 0;
+  }
+
+  @media (max-width: 360px) {
+    padding: 0.75rem;
+    border-radius: 15px;
   }
 
   &::-webkit-scrollbar { width: 8px; }

@@ -2,6 +2,16 @@ import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+
   body {
     margin: 0;
     padding: 0;
@@ -11,9 +21,13 @@ export const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     text-align: center;
     font-size: 16px;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
     
     @media (max-width: 768px) {
       font-size: 14px;
+      -webkit-overflow-scrolling: touch;
     }
   }
 
@@ -24,8 +38,18 @@ export const GlobalStyle = createGlobalStyle`
   h2 {
     font-size: 3.5rem;
     text-shadow: 0 0 10px ${props => props.theme.colors.primary};
+    margin: 1rem 0;
+    
+    @media (max-width: 1024px) {
+      font-size: 2.8rem;
+    }
+    
     @media (max-width: 768px) {
       font-size: 2.2rem;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 1.8rem;
     }
   }
 
@@ -38,14 +62,26 @@ export const GlobalStyle = createGlobalStyle`
 
   p {
     max-width: 100%;
-    margin: 0 auto;
+    margin: 1rem auto;
     line-height: 1.6;
     font-size: 1.1rem;
     padding: 0 1rem;
-    box-sizing: border-box;
+    text-align: justify;
+    
+    @media (max-width: 1024px) {
+      font-size: 1.05rem;
+      padding: 0 1.5rem;
+    }
     
     @media (max-width: 768px) {
       font-size: 1rem;
+      padding: 0 1rem;
+      line-height: 1.5;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 0.95rem;
+      padding: 0 0.75rem;
     }
   }
 
